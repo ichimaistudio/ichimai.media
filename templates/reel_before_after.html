@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F3EFE8}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#1F1D1A;position:relative}
+.serif{font-family:"Noto Serif CJK JP",serif}
+#stage{position:absolute;inset:0}
+.layer{position:absolute;inset:0}
+/* headline */
+#hl{position:absolute;left:90px;right:90px;top:150px;height:260px}
+.h{position:absolute;left:0;right:0;font-size:68px;line-height:1.35;font-weight:600;letter-spacing:.02em}
+.kicker{font-family:"Noto Sans CJK JP";font-size:30px;letter-spacing:.3em;color:#8A8276;font-weight:500;margin-bottom:22px}
+/* phone */
+.phone{position:absolute;left:230px;top:470px;width:620px;height:1180px;border-radius:64px;background:#111;padding:18px;box-shadow:0 40px 80px rgba(40,30,20,.18)}
+.screen{position:relative;width:100%;height:100%;border-radius:48px;overflow:hidden;background:#fff}
+/* BEFORE site */
+.b-head{background:#1d4fd8;color:#fff;padding:54px 16px 10px;font-size:15px;line-height:1.4}
+.b-head b{font-size:20px;color:#ffeb3b}
+.b-marq{background:#fff3f3;color:#e01b1b;font-weight:700;font-size:17px;padding:6px 10px;border-bottom:2px dashed #e01b1b}
+.b-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px}
+.b-nav span{background:#e9eefc;border:1px solid #9fb2ee;font-size:12px;text-align:center;padding:5px 0;color:#1d4fd8}
+.b-img{margin:6px 10px;height:190px;background:repeating-linear-gradient(45deg,#ddd 0 10px,#e8e8e8 10px 20px);display:flex;align-items:center;justify-content:center;color:#888;font-size:14px}
+.b-txt{padding:6px 12px;font-size:12px;line-height:1.55;color:#666}
+.b-txt h4{font-size:14px;color:#2a2;margin:6px 0 2px}
+.b-tel{position:absolute;left:0;right:0;bottom:34px;margin:0 22px;font-size:11px;color:#777;text-align:right}
+/* AFTER site */
+.a-hero{position:absolute;inset:0;background:
+ radial-gradient(120% 70% at 30% 20%,#f3dcc4 0%,rgba(243,220,196,0) 60%),
+ radial-gradient(90% 60% at 80% 70%,#c9a98a 0%,rgba(201,169,138,0) 70%),
+ linear-gradient(180deg,#e9d6c2,#b98f6d)}
+.a-ph{position:absolute;left:50%;top:330px;transform:translateX(-50%);font-size:15px;letter-spacing:.2em;color:rgba(255,255,255,.75)}
+.a-nav{position:absolute;top:56px;left:34px;right:34px;display:flex;justify-content:space-between;color:#fff;font-size:15px;letter-spacing:.25em}
+.a-shade{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(180deg,rgba(40,28,18,0),rgba(40,28,18,.72))}
+.a-body{position:absolute;left:44px;right:44px;bottom:56px;color:#fff}
+.a-tag{font-size:16px;letter-spacing:.35em;opacity:.9}
+.a-name{font-size:92px;font-weight:600;line-height:1.1;margin:10px 0 18px}
+.a-catch{font-size:30px;line-height:1.6;font-weight:500}
+.a-sub{font-size:17px;opacity:.85;margin:14px 0 30px;letter-spacing:.05em}
+.btn1{background:#FFFDF9;color:#3B2A1E;border-radius:999px;text-align:center;font-size:24px;font-weight:700;padding:26px 0}
+.btn2{border:1.5px solid rgba(255,255,255,.85);border-radius:999px;text-align:center;font-size:21px;padding:20px 0;margin-top:14px}
+/* marks */
+.mark{position:absolute;border:7px solid #D9483B;border-radius:22px}
+.lab{position:absolute;background:#D9483B;color:#fff;font-size:30px;font-weight:700;padding:14px 22px;border-radius:14px;white-space:nowrap;box-shadow:0 10px 24px rgba(160,40,30,.25)}
+.lab.ok{background:#2F5A45;box-shadow:0 10px 24px rgba(30,70,50,.25)}
+.mark.ok{border-color:#2F5A45}
+.note{position:absolute;left:0;right:0;bottom:56px;text-align:center;font-size:26px;color:#8A8276;letter-spacing:.1em}
+/* wipe */
+#wipe{position:absolute;inset:0;background:#2F5A45;color:#F3EFE8;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#wipe .w1{font-size:44px;letter-spacing:.2em;opacity:.85}
+#wipe .w2{font-size:96px;font-weight:600;margin-top:24px}
+/* end */
+#end{position:absolute;inset:0;background:#1F1D1A;color:#F3EFE8;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#end .logo{font-family:"Noto Serif CJK JP";font-size:150px;font-weight:600;letter-spacing:.04em}
+#end .tag{font-size:46px;margin-top:40px;line-height:1.6}
+#end .rule{width:120px;height:3px;background:#C9A98A;margin:70px auto}
+#end .p{font-size:36px;line-height:1.8;color:#E6DED2}
+#end .cta{margin-top:80px;border:2px solid #C9A98A;color:#F3EFE8;border-radius:999px;padding:30px 70px;font-size:38px;font-weight:600}
+</style></head><body>
+<div id="stage">
+ <div class="layer" id="sceneA">
+  <div id="hl">
+   <div class="h serif" id="h1"><div class="kicker">HOMEPAGE CHECK</div>このホームページ、<br>予約したくなりますか？</div>
+   <div class="h serif" id="h2"><div class="kicker">HOMEPAGE CHECK</div>惜しいポイントは、<br>この3つ。</div>
+   <div class="h serif" id="h3"><div class="kicker">AFTER</div>3秒で伝わる、<br>はじめの一枚に。</div>
+  </div>
+  <div class="phone" id="phone">
+   <div class="screen">
+    <div id="before" class="layer" style="background:#fff">
+     <div class="b-head"><b>ヘアサロン ことり</b><br>公式ホームページへようこそ！当店は地域の皆様に愛されて…</div>
+     <div class="b-marq">★★新メニュー登場★★ キャンペーン実施中！！詳しくは下記へ</div>
+     <div class="b-nav"><span>トップ</span><span>メニュー</span><span>料金表</span><span>スタッフ</span><span>ブログ</span><span>アクセス</span><span>お知らせ</span><span>リンク集</span></div>
+     <div class="b-img">[ 店内の写真 ]</div>
+     <div class="b-txt"><h4>■当店について</h4>当店はカット・カラー・パーマ・トリートメント・ヘッドスパ・縮毛矯正・着付け・ヘアセットなど幅広いメニューをご用意しております。お客様一人ひとりに合わせたスタイルをご提案いたします。お気軽にお越しください。<h4>■お知らせ</h4>年末年始の営業時間について／新スタッフ加入のお知らせ／ポイントカードについて／駐車場のご案内…</div>
+     <div class="b-txt"><h4>■営業時間</h4>平日 10:00〜19:00（最終受付は各メニューにより異なります）土日祝 9:30〜18:30 定休日：毎週火曜日・第3月曜日（祝日の場合は翌日）<h4>■スタッフ紹介</h4>店長 ／ スタイリスト ／ アシスタント ※詳しくはスタッフページをご覧ください<h4>■アクセス</h4>〇〇駅より徒歩5分、〇〇通り沿い 2階 ※駐車場はございません。近隣のコインパーキングをご利用ください。</div>
+     <div class="b-tel">ご予約はお電話にて承ります（受付時間内）</div>
+    </div>
+    <div id="after" class="layer">
+     <div class="a-hero"></div>
+     <div class="a-ph">[ 店内の写真 ]</div>
+     <div class="a-nav"><span>KOTORI</span><span>MENU ≡</span></div>
+     <div class="a-shade"></div>
+     <div class="a-body">
+      <div class="a-tag">HAIR SALON</div>
+      <div class="a-name serif">ことり</div>
+      <div class="a-catch">髪から、毎日を<br>少しだけ軽く。</div>
+      <div class="a-sub">駅から徒歩5分｜完全予約制</div>
+      <div class="btn1">空き状況を見てネット予約</div>
+      <div class="btn2">メニューと料金を見る</div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- before marks (positions in page coords) -->
+  <div class="mark" id="m1" style="left:236px;top:478px;width:608px;height:118px"></div>
+  <div class="lab" id="l1" style="left:120px;top:420px">① 何のお店か、一瞬で伝わらない</div>
+  <div class="mark" id="m2" style="left:244px;top:925px;width:592px;height:270px"></div>
+  <div class="lab" id="l2" style="left:440px;top:1215px">② 文字が小さくて読みにくい</div>
+  <div class="mark" id="m3" style="left:244px;top:1555px;width:592px;height:60px"></div>
+  <div class="lab" id="l3" style="left:300px;top:1665px">③ 予約の方法が見つけにくい</div>
+  <!-- after marks -->
+  <div class="lab ok" id="k1" style="left:600px;top:1135px">✓ 3秒で伝わる</div>
+  <div class="lab ok" id="k2" style="left:640px;top:1250px">✓ 大きく読みやすい</div>
+  <div class="mark ok" id="k3m" style="left:262px;top:1400px;width:556px;height:96px;border-radius:999px"></div>
+  <div class="lab ok" id="k3" style="left:340px;top:1665px">✓ 予約まで1タップ</div>
+  <div class="note" id="note">※ 架空のお店でつくったイメージです</div>
+ </div>
+ <div id="wipe"><div class="w1">ICHIMAI. で</div><div class="w2 serif">作り直すと…</div></div>
+ <div id="end">
+  <div class="logo">ICHIMAI.</div>
+  <div class="tag serif">あなたのお店の<br>「はじめの一枚」を。</div>
+  <div class="rule"></div>
+  <div class="p">スマホで伝わるホームページ制作<br>公開後の更新も、まるごとお任せ</div>
+  <div class="cta">ご相談はプロフィールから</div>
+ </div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const prog=(t,s,d)=>ease((t-s)/d);
+function show(el,p,dy=40,sc=false){el.style.opacity=p;el.style.transform=(sc?`scale(${.85+.15*p})`:`translateY(${(1-p)*dy}px)`)}
+function out(t,s,d){return 1-ease((t-s)/d)}
+window.render=function(t){
+ // headline swaps
+ show($('h1'), Math.min(prog(t,0.2,.6), out(t,3.0,.35)));
+ show($('h2'), Math.min(prog(t,3.25,.5), out(t,6.4,.3)));
+ show($('h3'), prog(t,7.9,.6));
+ // phone entrance
+ const pe=prog(t,0,.7); $('phone').style.transform=`translateY(${(1-pe)*120}px)`; $('phone').style.opacity=pe;
+ // before / after swap at 7.5
+ $('after').style.opacity = t>=7.5?1:0;
+ // marks
+ [['m1','l1',3.6],['m2','l2',4.5],['m3','l3',5.4]].forEach(([m,l,s])=>{
+   const p=Math.min(prog(t,s,.35), t<6.5?1:0);
+   show($(m),p,0,true); show($(l),p,20);
+ });
+ [['k1',8.9],['k2',9.6],['k3',10.3]].forEach(([k,s])=>{const p=Math.min(prog(t,s,.35), out(t,12.0,.3)); show($(k),p,20)});
+ { const p=Math.min(prog(t,10.3,.35), out(t,12.0,.3)); show($('k3m'),p,0,true); }
+ $('note').style.opacity = Math.min(prog(t,.6,.5), out(t,12.0,.3));
+ // wipe 6.5-7.9
+ let w;
+ if(t<6.5) w=-1; else if(t<7.0) w=-1+ease((t-6.5)/.5); else if(t<7.5) w=0; else w=ease((t-7.5)/.45);
+ $('wipe').style.transform=`translateX(${w*100}%)`;
+ $('wipe').style.display=(t<6.5||t>8.0)?'none':'flex';
+ // end card 12.2+
+ const e=prog(t,12.2,.6); $('end').style.opacity=e; $('end').style.display=t<12.2?'none':'flex';
+ [...$('end').children].forEach((c,i)=>show(c,prog(t,12.4+i*.25,.5),30));
+};
+const q=new URLSearchParams(location.search); render(parseFloat(q.get('t')||'0'));
+</script>
+</body></html>
