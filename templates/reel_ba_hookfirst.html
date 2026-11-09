@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F3EFE8}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#1F1D1A;position:relative}
+.serif{font-family:"Noto Serif CJK JP",serif}
+.layer{position:absolute;inset:0}
+#grain{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 40%,rgba(255,255,255,.55),rgba(255,255,255,0))}
+/* headline */
+#kick{position:absolute;left:0;right:0;top:170px;text-align:center;font-size:27px;letter-spacing:.22em;color:#8A8276;font-weight:500}
+#kick b{color:#2F5A45;font-weight:600}
+#hl{position:absolute;left:60px;right:60px;top:232px;height:220px}
+.h{position:absolute;left:0;right:0;text-align:center;font-size:64px;line-height:1.42;font-weight:700;letter-spacing:.02em}
+.h em{font-style:normal;color:#2F5A45}
+.h .red{color:#C2473A}
+/* phone */
+.phone{position:absolute;left:265px;top:500px;width:550px;height:1060px;border-radius:62px;background:#1A1816;padding:16px;box-shadow:0 36px 70px rgba(40,30,20,.20)}
+.screen{position:relative;width:100%;height:100%;border-radius:47px;overflow:hidden;background:#fff}
+/* ---------- BEFORE (cafe) ---------- */
+#before{background:#fafafa;font-family:"Noto Sans CJK JP"}
+.bb-top{display:flex;align-items:center;gap:8px;padding:48px 14px 8px;border-bottom:1px solid #ddd;background:#fff}
+.bb-logo{width:34px;height:34px;border:1px solid #bbb;font-size:8px;color:#999;display:flex;align-items:center;justify-content:center}
+.bb-title{font-size:12px;color:#555;flex:1;line-height:1.3}
+.bb-ham{font-size:20px;color:#777}
+.bb-slide{margin:10px 14px 4px;height:150px;background:repeating-linear-gradient(45deg,#d9d6d0 0 9px,#e4e1db 9px 18px);display:flex;align-items:center;justify-content:center;color:#8d877d;font-size:12px}
+.bb-dots{text-align:center;font-size:9px;color:#aaa;letter-spacing:4px;margin-bottom:6px}
+.bb-sec{padding:4px 14px}
+.bb-sec h5{font-size:12px;color:#8b5a2b;border-left:4px solid #8b5a2b;padding-left:6px;margin:8px 0 5px}
+.bb-news{font-size:10.5px;color:#666;line-height:1.75}
+.bb-news span{color:#c33}
+.bb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bb-grid div{height:62px;background:#e6e2db;font-size:9px;color:#999;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px}
+.bb-p{font-size:10.5px;color:#666;line-height:1.75}
+.bb-acc{font-size:10px;color:#36c;text-decoration:underline;text-align:right;padding:6px 14px}
+.bb-banner{margin:8px 14px 2px;background:#fff6d8;border:1px dashed #d9b44a;color:#a07b10;font-size:10px;text-align:center;padding:6px 0}
+.bb-foot{margin-top:8px;background:#5b4636;color:#d8cfc5;font-size:9px;text-align:center;padding:14px 0 120px}
+/* ---------- AFTER (cafe) ---------- */
+#after{background:#F6F1EA}
+.ah{position:absolute;left:0;right:0;top:0;height:640px;overflow:hidden;background:
+ radial-gradient(70% 55% at 75% 25%,rgba(255,236,206,.95),rgba(255,236,206,0) 70%),
+ linear-gradient(165deg,#d8b893 0%,#a77c58 55%,#6f4d36 100%)}
+.ah svg{position:absolute;left:50%;top:150px;transform:translateX(-50%)}
+.an{position:absolute;top:50px;left:30px;right:30px;display:flex;justify-content:space-between;color:#fff;font-size:14px;letter-spacing:.28em;font-weight:500}
+.aph{position:absolute;right:22px;top:600px;font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.1em}
+.ab{position:absolute;left:34px;right:34px;top:470px}
+.atag{font-size:14px;letter-spacing:.36em;color:#fff;opacity:.95}
+.aname{font-size:62px;font-weight:700;line-height:1.15;color:#fff;margin-top:6px;text-shadow:0 2px 18px rgba(60,35,20,.25)}
+.acard{position:absolute;left:22px;right:22px;top:660px;background:#fff;border-radius:26px;padding:26px 24px 24px;box-shadow:0 10px 30px rgba(80,60,40,.10)}
+.acatch{font-size:25px;line-height:1.6;font-weight:600;color:#2a241f}
+.astat{display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:#EAF1EC;color:#2F5A45;border-radius:999px;padding:10px 18px;font-size:18px;font-weight:700}
+.astat i{width:12px;height:12px;border-radius:50%;background:#3E8A62;display:inline-block}
+.asub{font-size:15px;color:#7b7268;margin-top:10px}
+.abtn{margin-top:20px;background:#2F5A45;color:#fff;border-radius:999px;text-align:center;font-size:21px;font-weight:700;padding:21px 0}
+.abtn2{margin-top:12px;border:1.5px solid #cfc5b8;color:#3b332c;border-radius:999px;text-align:center;font-size:19px;padding:16px 0}
+/* marks */
+.mark{position:absolute;border:7px solid #C2473A;border-radius:20px;opacity:0}
+.mark.ok{border-color:#2F5A45}
+.lab{position:absolute;background:#C2473A;color:#fff;font-size:34px;font-weight:700;padding:16px 26px;border-radius:16px;white-space:nowrap;box-shadow:0 12px 26px rgba(150,40,30,.25);opacity:0}
+.lab.ok{background:#2F5A45;box-shadow:0 12px 26px rgba(30,70,50,.25)}
+/* wipe */
+#wipe{position:absolute;inset:0;background:#2F5A45;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center}
+#wipe .w1{font-size:46px;letter-spacing:.2em;opacity:.85}
+#wipe .w2{font-size:100px;font-weight:700;margin-top:26px}
+/* end */
+#end{position:absolute;inset:0;background:#1F1D1A;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#end .logo{font-family:"Noto Serif CJK JP";font-size:150px;font-weight:700;letter-spacing:.04em}
+#end .tag{font-size:50px;margin-top:40px;line-height:1.6;font-weight:600}
+#end .rule{width:120px;height:3px;background:#C9A98A;margin:64px auto}
+#end .p{font-size:38px;line-height:1.8;color:#E6DED2}
+#end .cta{margin-top:76px;border:2px solid #C9A98A;color:#F3EFE8;border-radius:999px;padding:30px 70px;font-size:40px;font-weight:700}
+#end .fic{margin-top:40px;font-size:26px;color:#9a9186;letter-spacing:.08em}
+</style></head><body>
+<div id="grain"></div>
+<div id="kick">CAFE ｜ BEFORE → AFTER ｜ <b>※架空のお店です</b></div>
+<div id="hl">
+ <div class="h serif" id="h0">検索して、これが出てきたら<br><em>行ってみたくなりますか？</em></div>
+ <div class="h serif" id="h1">じつは、作り直す前は<br><span class="red">こうでした。</span></div>
+ <div class="h serif" id="h2">惜しいのは、<br>この<span class="red">3つ</span>。</div>
+ <div class="h serif" id="h3">「行きたい」が、<br><em>3秒で伝わる一枚に。</em></div>
+</div>
+<div class="phone" id="phone"><div class="screen">
+ <div id="before" class="layer">
+  <div class="bb-top"><div class="bb-logo">LOGO</div><div class="bb-title">Cafe Tomarigi Official Web Site<br>〜とまりぎ珈琲 公式ホームページ〜</div><div class="bb-ham">≡</div></div>
+  <div class="bb-slide" id="tB1">[ 店内の写真 ]</div>
+  <div class="bb-dots">● ○ ○ ○ ○</div>
+  <div class="bb-sec"><h5>NEWS</h5>
+   <div class="bb-news">2026.10.30 <span>NEW!</span> 秋の限定メニューはじめました<br>2026.10.12 臨時休業のお知らせ<br>2026.09.28 焼き菓子の通販について<br>2026.09.01 ポイントカード変更のご案内</div></div>
+  <div class="bb-sec"><h5>MENU</h5>
+   <div class="bb-grid"><div>ブレンド</div><div>カフェラテ</div><div>スコーン</div><div>チーズケーキ</div><div>トースト</div><div>季節のタルト</div></div></div>
+  <div class="bb-sec"><h5>ごあいさつ</h5>
+   <div class="bb-p">いつも当店をご利用いただき誠にありがとうございます。おかげさまで当店は今年で開店○周年を迎えることができました。これからも皆様に愛されるお店を目指してスタッフ一同がんばってまいりますので、どうぞよろしくお願いいたします。</div></div>
+  <div class="bb-banner">★ Instagram・LINEもやってます ★ フォローお願いします！</div>
+  <div class="bb-sec" id="tB2"><h5>店舗情報</h5>
+   <div class="bb-p">当店は自家焙煎のコーヒーと手づくりの焼き菓子のお店です。営業時間は平日8時〜18時、土日祝は9時〜17時となっております（L.O.は閉店30分前）。定休日は毎週水曜日および第2火曜日です。※臨時休業はNEWSをご確認ください。お席は全18席、テイクアウトも承っております。</div></div>
+  <div class="bb-sec"><h5>LINK</h5><div class="bb-p">・焼き菓子オンラインショップ<br>・スタッフブログ<br>・求人情報</div></div>
+  <div class="bb-acc"><span id="tB3">アクセスはこちら＞＞</span></div>
+  <div class="bb-foot">Copyright © Cafe Tomarigi All Rights Reserved.</div>
+ </div>
+ <div id="after" class="layer">
+  <div class="ah">
+   <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+    <path d="M118 70c-14 18 14 26 0 46M150 60c-14 20 14 30 0 54M182 70c-14 18 14 26 0 46" stroke="rgba(255,255,255,.75)" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="150" cy="250" rx="118" ry="20" fill="rgba(60,38,24,.25)"/>
+    <path d="M70 140h160v40c0 44-36 76-80 76s-80-32-80-76z" fill="#FBF6EF"/>
+    <path d="M228 160c30 0 34 46 0 50" stroke="#FBF6EF" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <ellipse cx="150" cy="142" rx="80" ry="12" fill="#7A4E31"/>
+   </svg>
+   <div class="an"><span>TOMARIGI</span><span>MENU ≡</span></div>
+   <div class="ab" id="tA1"><div class="atag">COFFEE &amp; BAKE</div><div class="aname serif">とまりぎ珈琲</div></div>
+  </div>
+  <div class="acard">
+   <div class="acatch">窓ぎわの席で、本を一冊。</div>
+   <div class="astat" id="tA2"><i></i>本日 8:00–18:00 営業（水曜定休）</div>
+   <div class="asub">〇〇駅 北口から徒歩4分｜全18席</div>
+   <div class="abtn" id="tA3">地図で行き方を見る</div>
+   <div class="abtn2">メニューと料金を見る</div>
+  </div>
+ </div>
+</div></div>
+<div class="mark" id="mB1"></div><div class="lab" id="lB1">① 写真が小さく、雰囲気が伝わらない</div>
+<div class="mark" id="mB2"></div><div class="lab" id="lB2">② 営業日・時間が文章に埋もれている</div>
+<div class="mark" id="mB3"></div><div class="lab" id="lB3">③ 地図・行き方が見つけにくい</div>
+<div class="mark ok" id="mA1"></div><div class="lab ok" id="lA1">✓ 雰囲気がひと目で伝わる</div>
+<div class="mark ok" id="mA2"></div><div class="lab ok" id="lA2">✓ 今日開いているか、すぐ分かる</div>
+<div class="mark ok" id="mA3"></div><div class="lab ok" id="lA3">✓ 地図まで1タップ</div>
+<div id="wipe"><div class="w1">ICHIMAI. で</div><div class="w2 serif">作り直すと…</div></div>
+<div id="end">
+ <div class="logo">ICHIMAI.</div>
+ <div class="tag serif">あなたのお店の<br>「はじめの一枚」を。</div>
+ <div class="rule"></div>
+ <div class="p">スマホで伝わるホームページ制作<br>公開後の更新も、まるごとお任せ</div>
+ <div class="cta">ご相談はプロフィール／DMから</div>
+ <div class="fic">※登場するお店は架空です</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const prog=(t,s,d)=>ease((t-s)/d);
+const out=(t,s,d)=>1-ease((t-s)/d);
+function show(el,p,dy=36,sc=false){el.style.opacity=p;el.style.transform=sc?`scale(${.9+.1*p})`:`translateY(${(1-p)*dy}px)`}
+// place marks/labels around target elements (label: 'above' or 'below')
+function place(mid,lid,tid,pad,side,shiftY=0,round=false,center=false){
+ const r=$(tid).getBoundingClientRect(),m=$(mid),l=$(lid);m.style.borderRadius=round?'999px':'20px';
+ m.style.left=(r.left-pad)+'px';m.style.top=(r.top-pad)+'px';m.style.width=(r.width+pad*2)+'px';m.style.height=(r.height+pad*2)+'px';
+ const lw=l.offsetWidth,lh=l.offsetHeight;let x=center?540-lw/2:r.left+r.width/2-lw/2;x=Math.max(50,Math.min(1030-lw,x));
+ const y=side==='above'?r.top-pad-lh-18:r.bottom+pad+18;
+ l.style.left=x+'px';l.style.top=(y+shiftY)+'px';
+}
+function layoutBefore(){ $('before').style.display='block';$('after').style.display='none';
+ place('mB1','lB1','tB1',8,'below');place('mB2','lB2','tB2',8,'above');place('mB3','lB3','tB3',8,'below',0,false,true);}
+function layoutAfter(){ $('before').style.display='none';$('after').style.display='block';
+ place('mA1','lA1','tA1',12,'above');place('mA2','lA2','tA2',12,'above',14,true);place('mA3','lA3','tA3',14,'below',0,true);}
+// timeline
+const T={h0e:2.6,h1s:2.75,h1e:4.0,h2s:4.15,h2e:7.7,w0:7.7,w1:8.15,w2:8.55,w3:9.0,h3s:9.0,a1:9.9,a2:10.9,a3:11.9,ae:14.0,end:14.2};
+window.render=function(t){
+ // phone: subtle push-in during hook, quick flip to before (set before measuring)
+ let sc=1; if(t<T.h0e) sc=1+0.025*(t/T.h0e); else if(t<T.h0e+.3) sc=1-0.06*Math.sin(Math.PI*(t-T.h0e)/.3);
+ $('phone').style.transform=`scale(${sc})`;
+ const isAfter = (t<T.h0e) || (t>=T.w2);
+ if(isAfter) layoutAfter(); else layoutBefore();
+ // headlines: h0 is fully visible from frame 0 (hook)
+ show($('h0'), out(t,T.h0e-.15,.25),0);
+ show($('h1'), Math.min(prog(t,T.h1s,.35), out(t,T.h1e,.2)));
+ show($('h2'), Math.min(prog(t,T.h2s,.35), out(t,T.h2e-.2,.2)));
+ show($('h3'), prog(t,T.h3s,.45));
+ // before marks
+ [['mB1','lB1',4.4],['mB2','lB2',5.5],['mB3','lB3',6.6]].forEach(([m,l,s])=>{
+  const p=Math.min(prog(t,s,.3), t<T.w0?1:0); show($(m),p,0,true); show($(l),p,18);});
+ // after marks
+ [['mA1','lA1',T.a1],['mA2','lA2',T.a2],['mA3','lA3',T.a3]].forEach(([m,l,s])=>{
+  const p=Math.min(prog(t,s,.3), out(t,T.ae,.25)); show($(m),p,0,true); show($(l),p,18);});
+ // wipe
+ let w; if(t<T.w0) w=-1; else if(t<T.w1) w=-1+ease((t-T.w0)/(T.w1-T.w0)); else if(t<T.w2) w=0; else w=ease((t-T.w2)/(T.w3-T.w2));
+ $('wipe').style.transform=`translateX(${w*100}%)`; $('wipe').style.display=(t<T.w0||t>T.w3)?'none':'flex';
+ // end card
+ const e=prog(t,T.end,.5); $('end').style.opacity=e; $('end').style.display=t<T.end?'none':'flex';
+ [...$('end').children].forEach((c,i)=>show(c,prog(t,T.end+.2+i*.22,.45),28));
+};
+render(0);
+</script>
+</body></html>
