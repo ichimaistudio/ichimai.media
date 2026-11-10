@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+.pg{position:absolute;inset:0;display:none;padding:92px 96px 84px}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:26px;letter-spacing:.3em;color:#8A8276}
+.top b{display:inline-block;width:48px;height:2px;background:#C9A98A;vertical-align:middle;margin-right:20px}
+.top .no{letter-spacing:.12em;font-family:"Noto Serif CJK JP"}
+.foot{position:absolute;left:96px;right:96px;bottom:70px;display:flex;justify-content:space-between;align-items:flex-end;font-size:24px;color:#8A8276}
+.foot .logo{font-size:34px;font-weight:700;color:#1F1D1A;letter-spacing:.05em;font-family:"Noto Serif CJK JP"}
+em{font-style:normal;color:#2F5A45}
+/* cover */
+#s1 .eyebrow{margin-top:150px;font-size:40px;color:#8A8276;letter-spacing:.08em}
+#s1 h1{margin-top:34px;font-size:112px;line-height:1.3;font-weight:700;letter-spacing:.01em}
+#s1 .num{display:inline-block;color:#2F5A45}
+#s1 .sub{margin-top:56px;font-size:38px;line-height:1.75;color:#4a453e}
+#s1 .save{position:absolute;left:96px;bottom:170px;display:flex;align-items:center;gap:20px;font-size:32px;color:#2F5A45;font-weight:700}
+#s1 .save i{display:inline-block;width:30px;height:40px;border:4px solid #2F5A45;border-bottom:none;position:relative}
+#s1 .save i:after{content:"";position:absolute;left:-4px;bottom:-12px;width:0;height:0;border-left:15px solid #2F5A45;border-right:15px solid #2F5A45;border-bottom:12px solid transparent}
+#s1 .save i:before{content:"";position:absolute;left:0;right:0;bottom:-12px;height:14px;background:#F3EFE8;clip-path:polygon(0 0,100% 0,50% 100%)}
+/* mistake slides */
+.mk .lab{margin-top:56px;display:inline-block;font-size:28px;font-weight:700;letter-spacing:.2em;color:#F3EFE8;background:#1F1D1A;padding:10px 24px;border-radius:8px}
+.mk h2{margin-top:30px;font-size:68px;line-height:1.38;font-weight:700}
+.mk .row{margin-top:46px;display:flex;gap:36px;align-items:flex-start}
+.mk .col{flex:1;display:flex;flex-direction:column;align-items:center}
+.tag{font-size:26px;font-weight:700;letter-spacing:.18em;padding:6px 22px;border-radius:999px;margin-bottom:20px}
+.tag.ng{color:#8a6a4c;border:2px solid #C9A98A}
+.tag.ok{color:#F3EFE8;background:#2F5A45;border:2px solid #2F5A45}
+.phone{width:300px;height:560px;border-radius:40px;background:#1F1D1A;padding:14px;position:relative}
+.scr{width:100%;height:100%;border-radius:28px;background:#FFFDF9;overflow:hidden;position:relative;font-size:16px}
+.scr .bar{height:52px;display:flex;align-items:center;justify-content:center;font-size:18px;letter-spacing:.2em;color:#4a453e;border-bottom:1px solid #eee5d8;font-family:"Noto Serif CJK JP"}
+.scr .hero{height:170px;background:linear-gradient(135deg,#d9cbb8,#bfa98e)}
+.scr .ln{height:12px;border-radius:6px;background:#e9e1d5;margin:14px 22px 0}
+.scr .ln.s{width:55%}
+.scr .btn{position:absolute;left:22px;right:22px;height:56px;border-radius:14px;background:#2F5A45;color:#fff;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:.1em}
+.scr .more{position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(rgba(255,253,249,0),#FFFDF9 55%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;font-size:19px;color:#8A8276;font-weight:700}
+.scr .btn.ghost{background:#d8d0c4;color:#8A8276}
+.note{margin-top:20px;font-size:28px;line-height:1.55;text-align:center;color:#4a453e}
+.mk:after{content:"※画面はイメージです";position:absolute;left:96px;bottom:48px;font-size:22px;color:#8A8276}
+.fix{position:absolute;left:96px;right:96px;bottom:150px;background:#FFFDF9;border-radius:22px;padding:28px 36px;font-size:32px;line-height:1.6;border-left:8px solid #2F5A45}
+.fix b{color:#2F5A45}
+/* image menu */
+.imgmenu{margin:18px 18px 0;height:210px;border-radius:10px;background:#3a342d;padding:14px 16px;color:#cfc4b4}
+.imgmenu div{font-size:9px;line-height:1.7;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+.txtmenu{margin:16px 20px 0}
+.txtmenu .h{font-size:20px;font-weight:700;margin-bottom:8px;font-family:"Noto Serif CJK JP"}
+.txtmenu .it{display:flex;justify-content:space-between;font-size:19px;padding:10px 0;border-bottom:1px solid #eee5d8}
+/* old info */
+.info{margin:16px 18px 0;border-radius:12px;padding:16px;font-size:18px;line-height:1.55}
+.info.old{background:#f1ece4;color:#8A8276}
+.info .real{display:block;margin-top:4px;font-size:15px;font-weight:700;color:#a7774f}
+.info.new{background:#e7efe9;color:#1F1D1A}
+.info .d{font-size:15px;letter-spacing:.06em;margin-bottom:6px}
+.info.new .d{color:#2F5A45;font-weight:700}
+/* checklist */
+#s5 h2{margin-top:70px;font-size:76px;line-height:1.35;font-weight:700}
+#s5 .list{margin-top:60px;display:flex;flex-direction:column;gap:26px}
+#s5 .it{display:flex;align-items:center;gap:34px;background:#FFFDF9;border-radius:24px;padding:36px 40px}
+#s5 .box{flex:none;width:64px;height:64px;border:4px solid #2F5A45;border-radius:12px}
+#s5 .it p{font-size:42px;font-weight:700;line-height:1.35}
+#s5 .it small{display:block;font-size:26px;font-weight:400;color:#8A8276;margin-top:6px}
+#s5 .s{margin-top:44px;font-size:32px;color:#4a453e;line-height:1.7}
+/* maintenance */
+#s6 h2{margin-top:70px;font-size:66px;line-height:1.4;font-weight:700}
+#s6 .lead{margin-top:30px;font-size:34px;line-height:1.75;color:#4a453e}
+#s6 .plans{margin-top:50px;display:flex;flex-direction:column;gap:22px}
+#s6 .pl{display:flex;align-items:center;background:#FFFDF9;border-radius:22px;padding:28px 38px;gap:30px}
+#s6 .pl .lf{flex:none;width:290px}
+#s6 .pl .nm{font-size:28px;font-weight:700;color:#2F5A45;letter-spacing:.06em}
+#s6 .pl .pr{margin-top:4px;font-family:"Noto Serif CJK JP";font-size:42px;font-weight:700}
+#s6 .pl .pr small{font-size:24px;font-weight:400;margin-left:2px}
+#s6 .pl .ct{font-size:26px;line-height:1.6;color:#4a453e;border-left:2px solid #e6dccd;padding-left:30px}
+#s6 .tax{margin-top:22px;font-size:24px;color:#8A8276}
+/* cta */
+#s7{background:#1F1D1A;color:#F3EFE8}
+#s7 .top{color:#C9A98A}
+#s7 h2{margin-top:220px;font-size:62px;line-height:1.5;font-weight:700;text-align:center}
+#s7 h2 em{color:#C9A98A}
+#s7 .s{margin-top:50px;text-align:center;font-size:36px;line-height:1.8;color:#E6DED2}
+#s7 .pills{margin-top:80px;display:flex;flex-direction:column;align-items:center;gap:26px}
+#s7 .pill{border:2px solid #C9A98A;border-radius:999px;padding:24px 60px;font-size:36px;font-weight:700;white-space:nowrap}
+#s7 .pill.f{background:#C9A98A;color:#1F1D1A}
+#s7 .foot{color:#9a9186}
+#s7 .foot .logo{color:#F3EFE8}
+</style></head><body>
+
+<div class="pg" id="s1">
+ <div class="top"><span><b></b>ホームページの小ワザ</span><span class="no">01 / 07</span></div>
+ <div class="eyebrow">それ、もったいないかも。</div>
+ <h1 class="serif">ホームページで<br>やりがちな<br><em>3つのミス</em></h1>
+ <div class="sub">お店のページ、スマホで開いて<br>いっしょに確かめてみませんか？</div>
+ <div class="save"><i></i>保存して、あとで見比べてね</div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<div class="pg mk" id="s2">
+ <div class="top"><span><b></b>MISTAKE</span><span class="no">02 / 07</span></div>
+ <div class="lab">ミス 1</div>
+ <h2 class="serif">予約ボタンが、<br>いちばん下にしかない</h2>
+ <div class="row">
+  <div class="col"><div class="tag ng">ありがち</div>
+   <div class="phone"><div class="scr"><div class="bar">SALON</div><div class="hero"></div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div class="more">↓ 予約ボタンは、まだ下…</div></div></div>
+   <div class="note">ずっと下まで<br>読まないと見つからない</div></div>
+  <div class="col"><div class="tag ok">おすすめ</div>
+   <div class="phone"><div class="scr"><div class="bar">SALON</div><div class="hero"></div><div class="btn" style="top:240px;position:absolute">予約する</div><div style="height:84px"></div><div class="ln"></div><div class="ln s"></div><div class="ln"></div><div class="ln s"></div><div class="btn" style="bottom:18px">予約する</div></div></div>
+   <div class="note">最初の画面と、<br>画面の下に固定で</div></div>
+ </div>
+</div>
+
+<div class="pg mk" id="s3">
+ <div class="top"><span><b></b>MISTAKE</span><span class="no">03 / 07</span></div>
+ <div class="lab">ミス 2</div>
+ <h2 class="serif">メニューや料金を<br>「画像」で貼っている</h2>
+ <div class="row">
+  <div class="col"><div class="tag ng">ありがち</div>
+   <div class="phone"><div class="scr"><div class="bar">MENU</div>
+    <div class="imgmenu"><div>カット ……………… 0,000円（シャンプー込）</div><div>カラー ……………… 0,000円〜</div><div>パーマ ……………… 0,000円〜</div><div>トリートメント …… 0,000円〜</div><div>ヘッドスパ ………… 0,000円（30分）</div><div>※平日限定 ○○割 ……… 詳しくはスタッフまで</div><div>※表示は税込です ………… 0000年00月改定</div><div>カット＋カラー …… 00,000円〜</div><div>前髪カット ………… 0,000円</div><div>キッズカット ……… 0,000円</div></div>
+    <div class="ln"></div><div class="ln s"></div><div class="ln"></div></div></div>
+   <div class="note">文字が小さく、<br>拡大しないと読めない</div></div>
+  <div class="col"><div class="tag ok">おすすめ</div>
+   <div class="phone"><div class="scr"><div class="bar">MENU</div>
+    <div class="txtmenu"><div class="h">メニュー</div><div class="it"><span>カット</span><span>¥0,000</span></div><div class="it"><span>カラー</span><span>¥0,000〜</span></div><div class="it"><span>パーマ</span><span>¥0,000〜</span></div><div class="it"><span>ヘッドスパ</span><span>¥0,000</span></div><div class="it"><span>トリートメント</span><span>¥0,000〜</span></div></div></div></div>
+   <div class="note">文字は文字で。<br>そのまま読めて、検索にも◎</div></div>
+ </div>
+</div>
+
+<div class="pg mk" id="s4">
+ <div class="top"><span><b></b>MISTAKE</span><span class="no">04 / 07</span></div>
+ <div class="lab">ミス 3</div>
+ <h2 class="serif">お知らせや営業時間が、<br>ずっと前のまま</h2>
+ <div class="row">
+  <div class="col"><div class="tag ng">ありがち</div>
+   <div class="phone"><div class="scr"><div class="bar">NEWS</div>
+    <div class="info old"><div class="d">2024.12.20</div>年末年始のお休み</div>
+    <div class="info old"><div class="d">営業時間</div>10:00〜20:00<span class="real">実際は19時まで</span></div>
+    <div class="info old"><div class="d">定休日</div>毎週火曜<span class="real">実際は月・火</span></div>
+   </div></div>
+   <div class="note">「やってるのかな？」と<br>不安にさせてしまう</div></div>
+  <div class="col"><div class="tag ok">おすすめ</div>
+   <div class="phone"><div class="scr"><div class="bar">NEWS</div>
+    <div class="info new"><div class="d">今月のお知らせ</div>年末年始の営業日を<br>掲載しました</div>
+    <div class="info new"><div class="d">営業時間</div>10:00〜19:00</div>
+    <div class="info new"><div class="d">定休日</div>毎週 月・火曜</div>
+   </div></div>
+   <div class="note">変わったら、すぐ直す。<br>Googleマップとも揃える</div></div>
+ </div>
+</div>
+
+<div class="pg" id="s5">
+ <div class="top"><span><b></b>CHECKLIST</span><span class="no">05 / 07</span></div>
+ <h2 class="serif">保存して、<br><em>自分のページ</em>でチェック</h2>
+ <div class="list">
+  <div class="it"><div class="box"></div><p>最初の画面に「予約する」がある<small>スマホで開いて、スクロールせずに見える？</small></p></div>
+  <div class="it"><div class="box"></div><p>メニュー・料金が文字で読める<small>拡大しなくても、そのまま読める？</small></p></div>
+  <div class="it"><div class="box"></div><p>営業時間・お知らせが最新<small>Googleマップの情報と同じになっている？</small></p></div>
+ </div>
+ <div class="s">ひとつでも「あれ？」と思ったら、<br>直すタイミングかもしれません。</div>
+</div>
+
+<div class="pg" id="s6">
+ <div class="top"><span><b></b>ICHIMAI. の保守</span><span class="no">06 / 07</span></div>
+ <h2 class="serif">ミス3は、<br><em>「作ったあと」</em>の問題です</h2>
+ <div class="lead">忙しいと、更新はつい後回しに。<br>ICHIMAI. では公開後の更新もお任せいただけます。</div>
+ <div class="plans">
+  <div class="pl"><div class="lf"><div class="nm">ライト</div><div class="pr">¥3,980<small>/月</small></div></div><div class="ct">サーバー・ドメイン・SSL費用込み<br>月1回の文章・写真の差し替え</div></div>
+  <div class="pl"><div class="lf"><div class="nm">スタンダード</div><div class="pr">¥7,980<small>/月</small></div></div><div class="ct">月3回まで更新・お知らせ文の作成<br>Googleマップ掲載の更新</div></div>
+  <div class="pl"><div class="lf"><div class="nm">プラス</div><div class="pr">¥14,800<small>/月</small></div></div><div class="ct">軽い更新は回数無制限<br>毎月の改善提案</div></div>
+ </div>
+ <div class="tax">※表示はすべて税込です</div>
+</div>
+
+<div class="pg" id="s7">
+ <div class="top"><span><b></b>CONTACT</span><span class="no">07 / 07</span></div>
+ <h2 class="serif">スマホで<em>伝わる</em>ページに。<br>公開後も、おまかせください。</h2>
+ <div class="s">「うちのページ、どうかな？」だけでも<br>お気軽にどうぞ。</div>
+ <div class="pills"><div class="pill f">ご相談は DM から</div><div class="pill">料金・プランはプロフィールのリンクへ</div></div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<script>
+window.render=n=>{n=Math.max(1,Math.round(n));document.querySelectorAll('.pg').forEach((e,i)=>e.style.display=(i+1===n)?'block':'none')};
+render(1);
+</script></body></html>
