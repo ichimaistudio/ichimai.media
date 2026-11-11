@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F3EFE8}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#1F1D1A;position:relative}
+.serif{font-family:"Noto Serif CJK JP",serif}
+#glow{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 38%,rgba(255,255,255,.6),rgba(255,255,255,0))}
+/* hook */
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#hook .t{font-size:124px;font-weight:700;line-height:1.36;letter-spacing:.02em}
+#hook .t .r{color:#B5452F}
+#hook .u{width:110px;height:4px;background:#C9A98A;margin:70px auto 0}
+/* top area */
+#kick{position:absolute;left:0;right:0;top:150px;text-align:center;font-size:27px;letter-spacing:.2em;color:#8A8276;font-weight:500}
+#kick b{color:#2F5A45;font-weight:600}
+#hl{position:absolute;left:50px;right:50px;top:212px;height:260px}
+.h{position:absolute;left:0;right:0;text-align:center;font-size:68px;line-height:1.45;font-weight:700;letter-spacing:.02em}
+.h em{font-style:normal;color:#2F5A45}
+.h .r{color:#B5452F}
+/* phone */
+.phone{position:absolute;left:240px;top:500px;width:600px;height:1150px;border-radius:70px;background:#1A1816;padding:16px;box-shadow:0 36px 70px rgba(40,30,20,.20)}
+.screen{position:relative;width:452px;height:892px;zoom:1.2566;border-radius:44px;overflow:hidden;background:#FBF7F1}
+.nav{position:absolute;top:0;left:0;right:0;height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 16px;font-size:13px;letter-spacing:.24em;color:#5a4a3c}
+.nav b{font-family:"Noto Serif CJK JP";font-size:20px;letter-spacing:.12em;color:#3a2c22}
+.hero{position:absolute;top:96px;left:0;right:0;height:330px;overflow:hidden;background:
+ radial-gradient(60% 55% at 70% 30%,rgba(255,234,200,.95),rgba(255,234,200,0) 70%),
+ linear-gradient(160deg,#e3c59c 0%,#b98a5c 55%,#7b5638 100%)}
+.hero svg{position:absolute;right:-6px;top:70px}
+.hero .nm{position:absolute;left:26px;top:52px;color:#fff;font-family:"Noto Serif CJK JP";font-size:46px;font-weight:700;text-shadow:0 2px 14px rgba(60,35,20,.3)}
+.hero .tg{position:absolute;left:28px;top:30px;color:#fff;font-size:12px;letter-spacing:.36em}
+.box{position:absolute;left:20px;right:20px;background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 6px 18px rgba(80,60,40,.08)}
+.box h6{font-size:13px;letter-spacing:.2em;color:#8A8276;font-weight:500;margin-bottom:10px}
+#news{top:448px;height:150px}
+#hours{top:618px;height:118px}
+.ln{position:absolute;left:20px;right:20px;font-size:19px;line-height:1.55;color:#3a332c}
+.ln small{display:block;font-size:13px;color:#9a9186}
+.ln .nw{display:inline-block;background:#2F5A45;color:#fff;font-size:11px;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:2px}
+.hl{font-size:26px;font-weight:700;color:#2a241f}
+.btn{position:absolute;left:20px;right:20px;top:756px;background:#2F5A45;color:#fff;border-radius:999px;text-align:center;font-size:18px;font-weight:700;padding:18px 0}
+.btn2{position:absolute;left:20px;right:20px;top:826px;border:1.5px solid #cfc5b8;color:#3b332c;border-radius:999px;text-align:center;font-size:16px;padding:14px 0}
+/* marks */
+.mark{position:absolute;border:7px solid #B5452F;border-radius:22px;opacity:0}
+.mark.ok{border-color:#2F5A45}
+.lab{position:absolute;background:#B5452F;color:#fff;font-size:36px;font-weight:700;padding:16px 28px;border-radius:16px;white-space:nowrap;box-shadow:0 12px 26px rgba(150,40,30,.22);opacity:0}
+.lab.ok{background:#2F5A45;box-shadow:0 12px 26px rgba(30,70,50,.22)}
+/* wipe */
+#wipe{position:absolute;inset:0;background:#2F5A45;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center}
+#wipe .w1{font-size:48px;letter-spacing:.2em;opacity:.85}
+#wipe .w2{font-size:104px;font-weight:700;margin-top:28px}
+/* plans */
+#plans{position:absolute;inset:0;background:#F3EFE8;display:none;flex-direction:column;align-items:center;padding-top:250px}
+#plans .k{font-size:34px;letter-spacing:.3em;color:#8A8276}
+#plans .p{font-size:150px;font-weight:700;line-height:1.1;margin-top:26px;color:#1F1D1A}
+#plans .p small{font-size:60px;margin-left:6px}
+#plans .p .y{font-size:96px}
+#plans .s{font-size:44px;font-weight:700;color:#2F5A45;margin-top:28px;background:#E5ECE6;padding:14px 34px;border-radius:999px}
+#plans .rows{margin-top:70px;width:900px}
+.row{display:flex;align-items:center;background:#fff;border-radius:26px;padding:30px 36px;margin-bottom:22px;box-shadow:0 8px 22px rgba(80,60,40,.06)}
+.row .n{width:290px;font-size:40px;font-weight:700;white-space:nowrap}
+.row .d{flex:1;font-size:28px;color:#5d554b;line-height:1.5}
+.row .v{font-size:40px;font-weight:700;color:#2F5A45;white-space:nowrap}
+.row .v small{font-size:24px;color:#8A8276;font-weight:500}
+#plans .tax{font-size:28px;color:#8A8276;margin-top:14px}
+/* end */
+#end{position:absolute;inset:0;background:#1F1D1A;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:120px}
+#end .logo{font-family:"Noto Serif CJK JP";font-size:150px;font-weight:700;letter-spacing:.04em}
+#end .tag{font-size:52px;margin-top:40px;line-height:1.6;font-weight:600}
+#end .rule{width:120px;height:3px;background:#C9A98A;margin:60px auto}
+#end .p{font-size:38px;line-height:1.8;color:#E6DED2}
+#end .cta{margin-top:70px;border:2px solid #C9A98A;color:#F3EFE8;border-radius:999px;padding:30px 70px;font-size:40px;font-weight:700}
+#end .fic{margin-top:40px;font-size:26px;color:#9a9186;letter-spacing:.08em}
+</style></head><body>
+<div id="glow"></div>
+<div id="hook"><div class="t serif">ホームページ、<br>作ったまま<br><span class="r">放置</span>してない？</div><div class="u"></div></div>
+<div id="kick">公開後のホームページ ｜ <b>※架空のお店です</b></div>
+<div id="hl">
+ <div class="h serif" id="h1">1年前のお知らせが、<br><span class="r">まだ一番上に。</span></div>
+ <div class="h serif" id="h2">「今もやってるのかな？」<br>と、<span class="r">迷わせてしまう</span>かも。</div>
+ <div class="h serif" id="h3">変えたい内容を、伝えるだけ。<br><em>更新は、こちらで。</em></div>
+</div>
+<div class="phone" id="phone"><div class="screen">
+ <div class="nav"><b>麦と灯</b><span>MENU ≡</span></div>
+ <div class="hero">
+  <svg width="260" height="220" viewBox="0 0 260 220" fill="none">
+   <ellipse cx="130" cy="196" rx="112" ry="16" fill="rgba(70,40,20,.25)"/>
+   <path d="M30 150c0-60 45-100 100-100s100 40 100 100c0 22-20 36-100 36S30 172 30 150z" fill="#F1D3A6"/>
+   <path d="M30 150c0-60 45-100 100-100s100 40 100 100" stroke="#C88E55" stroke-width="10" fill="none"/>
+   <path d="M78 96c14 10 18 26 14 40M126 80c14 12 18 30 14 46M172 92c14 10 18 26 14 40" stroke="#B87A45" stroke-width="7" stroke-linecap="round"/>
+  </svg>
+  <div class="tg">BAKERY</div><div class="nm">麦と灯</div>
+ </div>
+ <div class="box" id="news"><h6>お知らせ</h6>
+  <div class="ln" id="nOld" style="top:44px"><small>2025.12.20</small>年末年始の営業について</div>
+  <div class="ln" id="nNew" style="top:44px;opacity:0"><small>2026.11.10<span class="nw">NEW</span></small>11月から営業時間が変わります</div>
+  <div class="ln" style="top:100px;font-size:14px;color:#9a9186">2025.11.01 秋の新作パンのご案内</div>
+ </div>
+ <div class="box" id="hours"><h6>営業時間</h6>
+  <div class="ln hl" id="hOld" style="top:44px">7:00〜18:00<span style="font-size:15px;font-weight:500;color:#8A8276">　月曜定休</span></div>
+  <div class="ln hl" id="hNew" style="top:44px;opacity:0;color:#2F5A45">8:00〜17:00<span style="font-size:15px;font-weight:500;color:#8A8276">　月・火定休</span></div>
+ </div>
+ <div class="btn">お取り置きの予約</div>
+ <div class="btn2">地図・アクセス</div>
+</div></div>
+<div class="mark" id="mB1"></div><div class="lab" id="lB1">去年の年末のお知らせ</div>
+<div class="mark" id="mB2"></div><div class="lab" id="lB2">営業時間も、前のまま</div>
+<div class="mark ok" id="mA1"></div><div class="lab ok" id="lA1">✓ お知らせを最新に</div>
+<div class="mark ok" id="mA2"></div><div class="lab ok" id="lA2">✓ 営業時間も書き換え</div>
+<div id="wipe"><div class="w1">ICHIMAI. の</div><div class="w2 serif">保守サブスクなら</div></div>
+<div id="plans">
+ <div class="k">公開後の保守サブスク</div>
+ <div class="p serif"><span class="y">月¥</span>3,980<small>〜</small></div>
+ <div class="s">サーバー・ドメイン・SSL費用込み</div>
+ <div class="rows">
+  <div class="row"><div class="n">ライト</div><div class="d">月1回の軽い更新<br>バックアップ</div><div class="v">¥3,980<small>/月</small></div></div>
+  <div class="row"><div class="n">スタンダード</div><div class="d">月3回まで更新<br>Googleマップ掲載も</div><div class="v">¥7,980<small>/月</small></div></div>
+  <div class="row"><div class="n">プラス</div><div class="d">軽い更新は回数無制限<br>毎月の改善提案</div><div class="v">¥14,800<small>/月</small></div></div>
+ </div>
+ <div class="tax">表示はすべて税込</div>
+</div>
+<div id="end">
+ <div class="logo">ICHIMAI.</div>
+ <div class="tag serif">作って終わりにしない、<br>ホームページ。</div>
+ <div class="rule"></div>
+ <div class="p">スマホで伝わるホームページ制作<br>公開後の更新も、まるごとお任せ</div>
+ <div class="cta">ご相談はプロフィール／DMから</div>
+ <div class="fic">※登場するお店は架空です</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const prog=(t,s,d)=>ease((t-s)/d);
+const out=(t,s,d)=>1-ease((t-s)/d);
+function show(el,p,dy=36,sc=false){el.style.opacity=p;el.style.transform=sc?`scale(${.92+.08*p})`:`translateY(${(1-p)*dy}px)`}
+function place(mid,lid,tid,pad,side){
+ const r=$(tid).getBoundingClientRect(),m=$(mid),l=$(lid);
+ m.style.left=(r.left-pad)+'px';m.style.top=(r.top-pad)+'px';m.style.width=(r.width+pad*2)+'px';m.style.height=(r.height+pad*2)+'px';
+ const lw=l.offsetWidth,lh=l.offsetHeight;let x=540-lw/2;
+ const y=side==='above'?r.top-pad-lh-16:r.bottom+pad+16;
+ l.style.left=x+'px';l.style.top=y+'px';
+}
+const T={hk:2.3,ph:2.2,h1:2.45,b1:3.3,b2:4.6,h1e:6.6,h2:6.75,h2e:8.9,w0:8.9,w1:9.35,w2:10.3,w3:10.75,h3:10.75,up1:11.6,up2:12.9,a1:11.75,a2:13.05,ae:15.2,pl:15.3,end:20.3};
+let laid=false;
+window.render=function(t){
+ // hook: fully visible at frame 0
+ const hk=out(t,T.hk,.3); $('hook').style.opacity=hk; $('hook').style.display=hk<=0?'none':'flex';
+ $('hook').style.transform=`scale(${1+0.02*cl(t/T.hk)})`;
+ // phone & kick
+ const ph=prog(t,T.ph,.5); show($('phone'),ph,80); show($('kick'),ph,10);
+ if(!laid){ $('phone').style.transform='none';
+  place('mB1','lB1','news',8,'above');place('mB2','lB2','hours',8,'below');
+  place('mA1','lA1','news',8,'above');place('mA2','lA2','hours',8,'below'); laid=true; }
+ // headlines
+ show($('h1'),Math.min(prog(t,T.h1,.35),out(t,T.h1e,.2)));
+ show($('h2'),Math.min(prog(t,T.h2,.35),out(t,T.h2e-.2,.2)));
+ show($('h3'),prog(t,T.h3,.4));
+ // before marks
+ [['mB1','lB1',T.b1],['mB2','lB2',T.b2]].forEach(([m,l,s])=>{const p=Math.min(prog(t,s,.3),t<T.w0?1:0);show($(m),p,0,true);show($(l),p,18);});
+ // content update
+ const u1=t>=T.w2?prog(t,T.up1,.4):0, u2=t>=T.w2?prog(t,T.up2,.4):0;
+ $('nOld').style.opacity=1-u1; $('nNew').style.opacity=u1;
+ $('hOld').style.opacity=1-u2; $('hNew').style.opacity=u2;
+ // after marks
+ [['mA1','lA1',T.a1],['mA2','lA2',T.a2]].forEach(([m,l,s])=>{const p=Math.min(prog(t,s,.3),out(t,T.ae,.25));show($(m),p,0,true);show($(l),p,18);});
+ // wipe
+ let w; if(t<T.w0) w=-1; else if(t<T.w1) w=-1+ease((t-T.w0)/(T.w1-T.w0)); else if(t<T.w2) w=0; else w=ease((t-T.w2)/(T.w3-T.w2));
+ $('wipe').style.transform=`translateX(${w*100}%)`; $('wipe').style.display=(t<T.w0||t>T.w3)?'none':'flex';
+ // plans
+ const pp=prog(t,T.pl,.45); $('plans').style.display=t<T.pl?'none':'flex'; $('plans').style.opacity=pp;
+ [...$('plans').querySelectorAll('.k,.p,.s,.row,.tax')].forEach((c,i)=>show(c,prog(t,T.pl+.15+i*.35,.45),30));
+ // end
+ const e=prog(t,T.end,.5); $('end').style.opacity=e; $('end').style.display=t<T.end?'none':'flex';
+ [...$('end').children].forEach((c,i)=>show(c,prog(t,T.end+.2+i*.22,.45),28));
+};
+render(0);
+</script>
+</body></html>

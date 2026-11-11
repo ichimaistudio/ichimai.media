@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.k{font-size:34px;letter-spacing:.3em;color:#8A8276}
+.t{font-size:116px;font-weight:700;line-height:1.36;margin:40px 0 0}
+.t .r{color:#B5452F}
+.rule{width:110px;height:4px;background:#C9A98A;margin:56px auto}
+.s{font-size:46px;line-height:1.6;font-weight:600}
+.s em{font-style:normal;color:#2F5A45}
+.logo{font-size:48px;font-weight:700;letter-spacing:.06em;margin-top:70px}
+.pill{display:inline-block;background:#2F5A45;color:#F3EFE8;font-size:40px;font-weight:700;padding:24px 54px;border-radius:99px;margin-top:56px}
+.note{font-size:30px;color:#9a9186;margin-top:40px}
+</style></head><body>
+<div class="c" id="cover">
+ <div class="k">公開後のホームページ</div>
+ <div class="t serif">作ったまま、<br><span class="r">放置</span>してない？</div>
+ <div class="rule"></div>
+ <div class="s">保守サブスクで<br><em>なにをしてくれるの？</em></div>
+ <div class="logo serif">ICHIMAI.</div>
+</div>
+<div class="c" id="story" style="display:none;background:#1F1D1A;color:#F3EFE8">
+ <div class="k" style="color:#C9A98A">NEW REEL</div>
+ <div class="t serif" style="font-size:104px">ホームページ、<br>作ったまま<br><span style="color:#E08B70">放置</span>してない？</div>
+ <div class="rule"></div>
+ <div class="s" style="font-weight:500">公開後の更新、なにをしてくれるの？<br>月¥3,980〜（税込）の保守の中身を<br>リールにまとめました。</div>
+ <div class="pill" style="background:#C9A98A;color:#1F1D1A">リールで公開中 ▶︎</div>
+ <div class="note">ご相談はDMからお気軽に</div>
+ <div class="logo serif" style="font-size:44px;margin-top:60px">ICHIMAI.</div>
+</div>
+<script>
+const m=new URLSearchParams(location.search).get('m')||'cover';
+document.getElementById('cover').style.display=m=='cover'?'flex':'none';
+document.getElementById('story').style.display=m=='story'?'flex':'none';
+window.render=()=>{};
+</script></body></html>
