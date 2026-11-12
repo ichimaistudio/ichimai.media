@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+em{font-style:normal;color:#2F5A45}
+.pg{position:absolute;left:0;top:0;width:1080px;height:1350px;display:none;padding:92px 96px 84px;background:#F3EFE8}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:26px;letter-spacing:.3em;color:#8A8276}
+.top b{display:inline-block;width:48px;height:2px;background:#C9A98A;vertical-align:middle;margin-right:20px}
+.top .no{letter-spacing:.12em;font-family:"Noto Serif CJK JP"}
+.dark{background:#2F5A45;color:#F3EFE8}
+.dark .top{color:#C9D6CC}
+.dark em{color:#E3CBB1}
+.foot{position:absolute;left:96px;right:96px;bottom:70px;display:flex;justify-content:space-between;align-items:flex-end;font-size:24px;color:#8A8276}
+.foot .logo{font-size:34px;font-weight:700;color:#1F1D1A;letter-spacing:.05em;font-family:"Noto Serif CJK JP"}
+.dark .foot{color:#C9D6CC}.dark .foot .logo{color:#F3EFE8}
+
+/* cover */
+#s1 .eyebrow{margin-top:190px;font-size:38px;letter-spacing:.12em;color:#C9D6CC}
+#s1 h1{margin-top:36px;font-size:124px;line-height:1.32;font-weight:700;letter-spacing:.01em}
+#s1 .sub{margin-top:60px;font-size:40px;line-height:1.7;color:#F3EFE8}
+#s1 .sub span{display:inline-block;border-bottom:3px solid #C9A98A;padding-bottom:4px}
+#s1 .steps{position:absolute;left:96px;right:96px;bottom:200px;display:flex;align-items:center;gap:0}
+#s1 .steps i{flex:none;width:22px;height:22px;border-radius:50%;background:#E3CBB1}
+#s1 .steps u{flex:1;height:3px;background:rgba(227,203,177,.45);text-decoration:none}
+
+/* step slides */
+.st .head{margin-top:36px;display:flex;align-items:flex-end;gap:26px}
+.st .num{font-family:"Noto Serif CJK JP";font-size:132px;line-height:.86;font-weight:700;color:#C9A98A}
+.st .lab{padding-bottom:10px}
+.st .lab small{display:block;font-size:24px;letter-spacing:.3em;color:#8A8276}
+.st .lab span{display:block;margin-top:6px;font-size:40px;font-weight:700;letter-spacing:.06em}
+.st h2{margin-top:34px;font-size:64px;line-height:1.38;font-weight:700}
+.st .body{margin-top:22px;font-size:32px;line-height:1.75;color:#4a453e}
+.prog{position:absolute;left:96px;right:96px;bottom:132px;display:flex;align-items:center}
+.prog i{flex:none;width:18px;height:18px;border-radius:50%;background:#d9d0c3}
+.prog i.on{background:#2F5A45;width:26px;height:26px}
+.prog i.done{background:#8fa898}
+.prog u{flex:1;height:3px;background:#e2dace;text-decoration:none}
+.prog u.done{background:#8fa898}
+.cap{position:absolute;left:96px;bottom:70px;font-size:22px;color:#8A8276}
+.logo2{position:absolute;right:96px;bottom:62px;font-size:30px;font-weight:700;letter-spacing:.05em;font-family:"Noto Serif CJK JP"}
+
+/* chat */
+.chat{margin-top:34px;display:flex;flex-direction:column;gap:16px}
+.bub{max-width:720px;font-size:30px;line-height:1.5;padding:20px 30px;border-radius:30px}
+.bub.l{align-self:flex-start;background:#FFFDF9;border-bottom-left-radius:8px}
+.bub.r{align-self:flex-end;background:#2F5A45;color:#F3EFE8;border-bottom-right-radius:8px}
+.who{font-size:22px;color:#8A8276;margin-bottom:-12px}
+.who.r{align-self:flex-end}
+
+/* questionnaire */
+.sheet{margin-top:40px;background:#FFFDF9;border-radius:26px;padding:34px 42px}
+.sheet .q{display:flex;align-items:center;gap:26px;padding:20px 0;border-bottom:2px dashed #e6ddcf;font-size:36px;font-weight:700}
+.sheet .q:last-child{border-bottom:none}
+.sheet .q i{flex:none;width:50px;height:50px;border:4px solid #2F5A45;border-radius:10px;position:relative}
+.sheet .q i:after{content:"";position:absolute;left:12px;top:2px;width:14px;height:26px;border:solid #2F5A45;border-width:0 6px 6px 0;transform:rotate(40deg)}
+.sheet .q small{font-size:26px;font-weight:400;color:#8A8276;margin-left:auto}
+.tip{margin-top:30px;font-size:30px;line-height:1.65;color:#4a453e;padding-left:28px;border-left:6px solid #C9A98A}
+
+/* top proposal */
+#s4 .wrap{margin-top:34px;display:flex;gap:46px;align-items:center}
+.phone{flex:none;width:330px;height:600px;border-radius:44px;background:#1F1D1A;padding:15px}
+.scr{width:100%;height:100%;border-radius:30px;background:#FFFDF9;overflow:hidden;position:relative}
+.scr .bar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:19px;letter-spacing:.14em;color:#4a453e;border-bottom:1px solid #eee5d8;font-family:"Noto Serif CJK JP"}
+.scr .hero{height:220px;background:linear-gradient(160deg,#e8d9c6 0%,#c9a98a 70%,#b08f70 100%);position:relative}
+.scr .hero:before{content:"";position:absolute;left:46px;top:58px;width:86px;height:86px;border-radius:50%;background:rgba(255,253,249,.55)}
+.scr .hero:after{content:"";position:absolute;right:40px;top:96px;width:120px;height:110px;border-radius:60px 60px 10px 10px;background:rgba(47,90,69,.35)}
+.scr .nm{margin:22px 24px 0;font-family:"Noto Serif CJK JP";font-size:30px;font-weight:700;letter-spacing:.06em}
+.scr .cp{margin:8px 24px 0;font-size:17px;white-space:nowrap;line-height:1.6;color:#6b645a}
+.scr .btn{position:absolute;left:22px;right:22px;bottom:84px;height:58px;border-radius:14px;background:#2F5A45;color:#fff;font-size:21px;font-weight:700;display:flex;align-items:center;justify-content:center;letter-spacing:.08em}
+.scr .btn2{position:absolute;left:22px;right:22px;bottom:18px;height:52px;border-radius:14px;border:2px solid #2F5A45;color:#2F5A45;font-size:19px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pts{flex:1;display:flex;flex-direction:column;gap:26px}
+.pt{font-size:31px;line-height:1.5;font-weight:700}
+.pt small{display:block;font-size:25px;font-weight:400;color:#8A8276;margin-top:4px}
+.pt b{display:inline-block;width:38px;height:38px;border-radius:50%;background:#2F5A45;color:#F3EFE8;font-size:22px;text-align:center;line-height:38px;margin-right:12px;vertical-align:4px}
+
+/* revision table */
+.tbl{margin-top:36px;background:#FFFDF9;border-radius:26px;overflow:hidden}
+.tbl .tr{display:flex;align-items:center;padding:24px 40px;border-bottom:2px solid #F3EFE8;font-size:32px}
+.tbl .tr:last-child{border-bottom:none}
+.tbl .th{background:#ebe4d9;font-size:24px;letter-spacing:.14em;color:#6b645a;padding:18px 40px}
+.tbl .c1{width:300px;font-weight:700}
+.tbl .c1 small{font-size:24px;font-weight:400;color:#8A8276;margin-left:10px}
+.tbl .c2{width:200px}
+.tbl .c3{flex:1;text-align:right}
+.tbl .tr b{font-family:"Noto Serif CJK JP";font-size:40px;color:#2F5A45}
+
+/* maint */
+#s6 .chat{margin-top:28px}
+.price{margin-top:30px;display:flex;align-items:center;gap:30px;background:#FFFDF9;border-radius:24px;padding:30px 40px}
+.price .p{font-family:"Noto Serif CJK JP";font-size:56px;font-weight:700;color:#2F5A45;white-space:nowrap}
+.price .p small{font-size:28px;color:#1F1D1A;margin:0 4px}
+.price .d{font-size:26px;line-height:1.6;color:#4a453e}
+
+/* summary */
+#s7 h2{margin-top:60px;font-size:70px;line-height:1.36;font-weight:700}
+.tl{margin-top:54px;position:relative;padding-left:20px}
+.tl:before{content:"";position:absolute;left:43px;top:30px;bottom:30px;width:4px;background:#C9A98A}
+.tl .it{position:relative;display:flex;align-items:center;gap:36px;margin-bottom:30px}
+.tl .it i{flex:none;width:52px;height:52px;border-radius:50%;background:#2F5A45;color:#F3EFE8;font-style:normal;font-family:"Noto Serif CJK JP";font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.tl .it div{flex:1;background:#FFFDF9;border-radius:20px;padding:22px 32px;font-size:36px;font-weight:700}
+.tl .it div small{font-size:26px;font-weight:400;color:#6b645a;margin-left:18px}
+.savehint{font-size:30px;color:#2F5A45;font-weight:700;margin-top:6px}
+
+/* cta */
+#s8 h2{margin-top:150px;font-size:88px;line-height:1.38;font-weight:700}
+#s8 .s{margin-top:44px;font-size:36px;line-height:1.75;color:#DCE5DE}
+#s8 .pills{margin-top:64px;display:flex;flex-direction:column;gap:24px}
+#s8 .pill{font-size:36px;font-weight:700;padding:30px 40px;border-radius:22px;background:#F3EFE8;color:#1F1D1A}
+#s8 .pill.o{background:transparent;border:3px solid #E3CBB1;color:#F3EFE8}
+#s8 .zero{margin-top:36px;font-size:27px;line-height:1.6;color:#C9D6CC}
+</style></head><body>
+
+<!-- 1 cover -->
+<div class="pg dark" id="s1">
+ <div class="top"><span><b></b>ICHIMAI. の制作の流れ</span><span class="no">01 / 08</span></div>
+ <div class="eyebrow">ホームページ制作</div>
+ <h1 class="serif">頼んだら、<br>何が<em>起きる</em>の？</h1>
+ <div class="sub"><span>相談から公開後まで、5つのステップ</span></div>
+ <div class="steps"><i></i><u></u><i></i><u></u><i></i><u></u><i></i><u></u><i></i></div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<!-- 2 consult -->
+<div class="pg st" id="s2">
+ <div class="top"><span><b></b>FLOW</span><span class="no">02 / 08</span></div>
+ <div class="head"><div class="num">01</div><div class="lab"><small>STEP</small><span>ご相談</span></div></div>
+ <h2 class="serif">まずは、<em>DM</em>で<br>気軽にどうぞ。</h2>
+ <div class="body">InstagramのDMかメールで。<br>まだ決まっていなくても大丈夫です。</div>
+ <div class="chat">
+  <div class="bub l">どのプランがいいか、分からなくて…</div>
+  <div class="bub l">今のサイト、見てもらえますか？</div>
+  <div class="bub r">もちろんです。お店のことを<br>聞かせてください。</div>
+ </div>
+ <div class="prog"><i class="on"></i><u></u><i></i><u></u><i></i><u></u><i></i><u></u><i></i></div>
+ <div class="cap">※やりとりはイメージです</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 3 hearing -->
+<div class="pg st" id="s3">
+ <div class="top"><span><b></b>FLOW</span><span class="no">03 / 08</span></div>
+ <div class="head"><div class="num">02</div><div class="lab"><small>STEP</small><span>ヒアリング</span></div></div>
+ <h2 class="serif">お店のことを、<br><em>質問票</em>で伺います。</h2>
+ <div class="sheet">
+  <div class="q"><i></i>お店の強み<small>選ばれる理由</small></div>
+  <div class="q"><i></i>メニュー・料金<small>今の内容でOK</small></div>
+  <div class="q"><i></i>写真の有無<small>なくても大丈夫</small></div>
+ </div>
+ <div class="tip">写真がなければ、スマホで撮るコツをお伝えします。<br>写真を使わないデザインで先に公開もできます。</div>
+ <div class="prog"><i class="done"></i><u class="done"></u><i class="on"></i><u></u><i></i><u></u><i></i><u></u><i></i></div>
+ <div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 4 top proposal -->
+<div class="pg st" id="s4">
+ <div class="top"><span><b></b>FLOW</span><span class="no">04 / 08</span></div>
+ <div class="head"><div class="num">03</div><div class="lab"><small>STEP</small><span>トップ案の提出</span></div></div>
+ <h2 class="serif">最初の<em>1画面</em>を、<br>先にお見せします。</h2>
+ <div class="wrap">
+  <div class="phone"><div class="scr">
+   <div class="bar"><span>花と午後</span><span>≡</span></div>
+   <div class="hero"></div>
+   <div class="nm">花と午後</div>
+   <div class="cp">季節の花を、暮らしのそばに。</div>
+   <div class="btn">ご注文・ご予約</div>
+   <div class="btn2">営業時間・アクセス</div>
+  </div></div>
+  <div class="pts">
+   <div class="pt"><b>1</b>何のお店か<small>店名とひとことを最初に</small></div>
+   <div class="pt"><b>2</b>どう予約するか<small>ボタンを迷わない場所に</small></div>
+   <div class="pt"><b>3</b>雰囲気が合うか<small>ここで方向性をすり合わせ</small></div>
+  </div>
+ </div>
+ <div class="prog"><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="on"></i><u></u><i></i><u></u><i></i></div>
+ <div class="cap">※架空のお店です（画面はイメージ）</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 5 build & revise -->
+<div class="pg st" id="s5">
+ <div class="top"><span><b></b>FLOW</span><span class="no">05 / 08</span></div>
+ <div class="head"><div class="num">04</div><div class="lab"><small>STEP</small><span>制作・修正</span></div></div>
+ <h2 class="serif">プランの回数内で、<br><em>納得いくまで</em>調整。</h2>
+ <div class="tbl">
+  <div class="tr th"><span class="c1">プラン</span><span class="c2">修正</span><span class="c3">公開までの目安</span></div>
+  <div class="tr"><span class="c1">梅<small>¥49,800</small></span><span class="c2"><b>2</b> 回</span><span class="c3">約2週間</span></div>
+  <div class="tr"><span class="c1">竹<small>¥98,000</small></span><span class="c2"><b>3</b> 回</span><span class="c3">約3〜4週間</span></div>
+  <div class="tr"><span class="c1">松<small>¥198,000</small></span><span class="c2"><b>5</b> 回</span><span class="c3">約4〜6週間</span></div>
+ </div>
+ <div class="tip">どのプランも、今のサイトからの乗り換え作業込み。</div>
+ <div class="prog"><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="on"></i><u></u><i></i></div>
+ <div class="cap">※料金はすべて税込</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 6 launch & maintenance -->
+<div class="pg st" id="s6">
+ <div class="top"><span><b></b>FLOW</span><span class="no">06 / 08</span></div>
+ <div class="head"><div class="num">05</div><div class="lab"><small>STEP</small><span>公開・保守</span></div></div>
+ <h2 class="serif">公開してからが、<br><em>本番</em>です。</h2>
+ <div class="body">公開の作業もこちらで。そのあとは、<br>変えたい内容をメッセージで送るだけ。</div>
+ <div class="chat">
+  <div class="bub l">来月から、定休日が水曜に変わります</div>
+  <div class="bub r">ホームページ、更新しておきますね</div>
+ </div>
+ <div class="price"><div class="p">月<small></small>¥3,980<small>〜</small></div><div class="d">サーバー・ドメイン・SSLの費用込み<br>ライト・スタンダード・プラスの3つ</div></div>
+ <div class="prog"><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="done"></i><u class="done"></u><i class="on"></i></div>
+ <div class="cap">※料金は税込／やりとりはイメージです</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 7 summary -->
+<div class="pg" id="s7">
+ <div class="top"><span><b></b>まとめ</span><span class="no">07 / 08</span></div>
+ <h2 class="serif">相談から公開後まで、<br><em>5つ</em>のステップ。</h2>
+ <div class="tl">
+  <div class="it"><i>1</i><div>ご相談<small>DM・メールで気軽に</small></div></div>
+  <div class="it"><i>2</i><div>ヒアリング<small>質問票でお店のことを</small></div></div>
+  <div class="it"><i>3</i><div>トップ案<small>最初の1画面を先に</small></div></div>
+  <div class="it"><i>4</i><div>制作・修正<small>プランの回数内で</small></div></div>
+  <div class="it"><i>5</i><div>公開・保守<small>更新はメッセージで</small></div></div>
+ </div>
+ <div class="savehint">保存して、相談するときのメモにどうぞ</div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<!-- 8 cta -->
+<div class="pg dark" id="s8">
+ <div class="top"><span><b></b>CONTACT</span><span class="no">08 / 08</span></div>
+ <h2 class="serif"><span style="margin-left:-.5em">「何から？」</span><br>からで、<em>大丈夫</em>です。</h2>
+ <div class="s">今のサイトを見てほしい、だけでも。<br>お気軽にご相談ください。</div>
+ <div class="pills"><div class="pill">ご相談は DM から</div><div class="pill o">料金・プランはプロフィールのリンクへ</div></div>
+ <div class="zero">初期費用0円プランもあります（月¥9,800・税込／最低24か月）</div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<script>
+window.render=n=>{n=Math.max(1,Math.round(n));document.querySelectorAll('.pg').forEach((e,i)=>e.style.display=(i+1===n)?'block':'none')};
+render(1);
+</script></body></html>
