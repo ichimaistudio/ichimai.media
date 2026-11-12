@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<!-- 返信特典「お店の紹介リール」15秒テンプレート。同じフォルダの data.js で window.DATA を定義する。 -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:"Noto Sans CJK JP",sans-serif;background:var(--bg);color:var(--ink)}
+.serif{font-family:"Noto Serif CJK JP",serif}
+#bg{position:absolute;inset:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(2px)}
+.line{position:absolute;left:120px;right:120px;height:2px;background:var(--accent);transform-origin:left center}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 110px}
+.tag{font-family:"Noto Sans CJK JP";font-size:34px;letter-spacing:.42em;color:var(--accent);font-weight:500}
+.name{font-size:150px;font-weight:600;line-height:1.15;margin-top:36px;letter-spacing:.04em;word-break:keep-all}
+.name.long{font-size:104px}
+.area{font-size:38px;margin-top:40px;color:var(--sub);letter-spacing:.08em}
+.catch{font-size:92px;font-weight:600;line-height:1.5;letter-spacing:.04em}
+.catch span{display:block}
+.pts .p{display:flex;gap:34px;align-items:baseline;margin:46px 0}
+.pts .n{font-family:"Noto Serif CJK JP";font-size:76px;color:var(--accent);min-width:90px}
+.pts .t{font-size:56px;font-weight:600;line-height:1.45}
+.end{align-items:center;text-align:center}
+.end .s{font-size:44px;color:var(--sub);letter-spacing:.08em}
+.end .nm{font-size:120px;font-weight:600;margin:34px 0 54px}
+.end .nm.long{font-size:84px}
+.end .cta{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:34px 70px;font-size:46px;font-weight:600}
+.end .cr{position:absolute;bottom:80px;left:0;right:0;text-align:center;font-size:24px;letter-spacing:.2em;color:var(--sub);opacity:.7}
+</style>
+<script src="data.js"></script>
+</head><body>
+<div id="bg"></div>
+<div class="sc" id="s1"><div class="tag" id="tag"></div><div class="name serif" id="name"></div><div class="area" id="area"></div></div>
+<div class="sc" id="s2"><div class="catch serif" id="catch"></div></div>
+<div class="sc pts" id="s3"></div>
+<div class="sc end" id="s4"><div class="s" id="eArea"></div><div class="nm serif" id="eName"></div><div><span class="cta" id="cta"></span></div><div class="cr">VIDEO BY ICHIMAI.</div></div>
+<script>
+const D=window.DATA;
+const r=document.documentElement.style;
+r.setProperty('--bg',D.palette.bg);r.setProperty('--ink',D.palette.ink);r.setProperty('--accent',D.palette.accent);r.setProperty('--sub',D.palette.sub||D.palette.ink);
+const $=id=>document.getElementById(id);
+$('tag').textContent=D.tag; $('name').textContent=D.shopName; $('area').textContent=D.area;
+if(D.shopName.length>6){$('name').classList.add('long');$('eName').classList.add('long');}
+$('catch').innerHTML=D.catch.map(l=>`<span>${l}</span>`).join('');
+$('s3').innerHTML=D.points.map((p,i)=>`<div class="p"><div class="n">0${i+1}</div><div class="t">${p}</div></div>`).join('');
+$('eArea').textContent=D.area; $('eName').textContent=D.shopName; $('cta').textContent=D.cta;
+// decorative orbs
+const bg=$('bg');
+[[180,380,520,D.palette.orb1],[820,1350,640,D.palette.orb2],[620,250,300,D.palette.orb2],[200,1600,360,D.palette.orb1]].forEach(([x,y,s,c],i)=>{
+  const o=document.createElement('div');o.className='orb';o.style.cssText=`left:${x-s/2}px;top:${y-s/2}px;width:${s}px;height:${s}px;background:${c};opacity:.55`;o.dataset.i=i;bg.appendChild(o);});
+const ln=document.createElement('div');ln.className='line';ln.style.top='1560px';bg.appendChild(ln);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const P=(t,s,d)=>ease((t-s)/d), O=(t,s,d)=>1-ease((t-s)/d);
+function vis(el,p,dy=50){el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`}
+window.render=function(t){
+  [...bg.querySelectorAll('.orb')].forEach((o,i)=>{const k=i%2?-1:1;o.style.transform=`translate(${Math.sin(t*.5+i)*30*k}px,${Math.cos(t*.4+i)*40}px) scale(${1+.05*Math.sin(t*.6+i)})`;});
+  ln.style.transform=`scaleX(${P(t,.3,1.2)*O(t,14.2,.6)})`;
+  const s1=$('s1'),s2=$('s2'),s3=$('s3'),s4=$('s4');
+  s1.style.opacity=O(t,3.0,.4); vis($('tag'),P(t,.2,.6)); vis($('name'),P(t,.5,.8),70); vis($('area'),P(t,1.2,.6));
+  s2.style.opacity=Math.min(P(t,3.2,.3),O(t,6.6,.4)); [...$('catch').children].forEach((c,i)=>vis(c,P(t,3.3+i*.55,.7),60));
+  s3.style.opacity=Math.min(P(t,6.9,.3),O(t,11.4,.4)); [...s3.children].forEach((c,i)=>vis(c,P(t,7.0+i*1.1,.6),40));
+  s4.style.opacity=P(t,11.7,.5); [...s4.children].forEach((c,i)=>{if(!c.classList.contains('cr'))vis(c,P(t,11.8+i*.3,.6),40)});
+  s4.querySelector('.cr').style.opacity=P(t,13.2,.6)*.7;
+};
+render(0);
+</script>
+</body></html>

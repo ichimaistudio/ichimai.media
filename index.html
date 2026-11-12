@@ -124,6 +124,18 @@ header nav .btn{padding:10px 20px;font-size:13px}
 .maint .price{font-size:36px}
 .maint .price span{font-size:15px;font-family:var(--sans);margin-right:4px}
 .rule{margin-top:22px;font-size:14px;color:var(--sub)}
+/* video */
+.video{background:var(--paper2)}
+.video .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+@media(max-width:900px){.video .wrap{grid-template-columns:1fr}}
+.video video{width:min(300px,80vw);aspect-ratio:9/16;border-radius:28px;background:#ddd;display:block;margin:0 auto;box-shadow:0 30px 60px rgba(60,40,20,.15)}
+.video .plans{grid-template-columns:repeat(3,1fr);margin-top:26px}
+@media(max-width:900px){.video .plans{grid-template-columns:1fr}}
+.video .plan{padding:26px 22px}
+.video .price{font-size:32px}
+.video .price span{font-size:14px;font-family:var(--sans);margin-right:4px}
+.setoff{margin-top:18px;background:var(--green);color:var(--white);border-radius:16px;padding:16px 20px;font-size:14.5px}
+.gift{margin-top:14px;font-size:14px;color:var(--sub)}
 /* zero */
 .zero{background:var(--green);color:var(--white)}
 .zero .label{color:rgba(255,255,255,.7)}
@@ -182,6 +194,7 @@ footer .wrap{border-top:1px solid rgba(243,239,232,.15);padding-top:28px;display
    <a href="#before-after">制作例</a>
    <a href="#pricing">料金</a>
    <a href="#maintenance">保守</a>
+   <a href="#video">ショート動画</a>
    <a href="#faq">よくある質問</a>
    <a class="btn btn-dark" href="https://ig.me/m/ichimai.studio" target="_blank" rel="noopener">DMで相談</a>
   </nav>
@@ -199,7 +212,7 @@ footer .wrap{border-top:1px solid rgba(243,239,232,.15);padding-top:28px;display
     <a class="btn btn-dark" href="https://ig.me/m/ichimai.studio" target="_blank" rel="noopener">Instagram DMで相談する</a>
     <a class="btn btn-line" href="#pricing">料金を見る</a>
    </div>
-   <div class="pill-row"><span>制作 ¥49,800〜</span><span>保守 月¥3,980〜（サーバー代込み）</span><span>初期費用0円プランあり</span></div>
+   <div class="pill-row"><span>制作 ¥49,800〜</span><span>保守 月¥3,980〜（サーバー代込み）</span><span>初期費用0円プランあり</span><span>ショート動画 月¥6,980〜</span></div>
   </div>
   <div class="visual reveal">
    <div class="phone"><div class="screen">
@@ -284,13 +297,13 @@ footer .wrap{border-top:1px solid rgba(243,239,232,.15);padding-top:28px;display
     <div class="tier">竹</div><h3>お店の顔</h3>
     <div class="price">¥98,000<small>税込</small></div>
     <p class="for">メニューやお店の紹介まで、きちんと伝えたい方に。</p>
-    <ul><li>最大5ページ（トップ・メニューと料金・お店紹介・アクセス・お知らせ）</li><li>文章づくり込み</li><li>予約システム・Instagramとの連携</li><li>Googleマップ掲載の整備</li><li>修正3回まで</li><li>公開まで約3〜4週間</li></ul>
+    <ul><li>最大5ページ（トップ・メニューと料金・お店紹介・アクセス・お知らせ）</li><li>文章づくり込み</li><li>予約システム・Instagramとの連携</li><li>Googleマップ掲載の整備</li><li>公開告知リール1本＋ストーリー3枚</li><li>修正3回まで</li><li>公開まで約3〜4週間</li></ul>
    </div>
    <div class="plan reveal">
     <div class="tier">松</div><h3>ブランドサイト</h3>
     <div class="price">¥198,000<small>税込</small></div>
     <p class="for">世界観やこだわりまで、ていねいに表現したい方に。</p>
-    <ul><li>最大10ページ</li><li>コンセプトとコピーの設計</li><li>ブログ機能</li><li>修正5回まで</li><li>公開まで約4〜6週間</li></ul>
+    <ul><li>最大10ページ</li><li>コンセプトとコピーの設計</li><li>ブログ機能</li><li>公開告知リール1本＋ストーリー3枚</li><li>修正5回まで</li><li>公開まで約4〜6週間</li></ul>
    </div>
   </div>
   <div class="common reveal"><span>・全プラン、乗り換え作業込み</span><span>・ページ追加 1ページ ¥10,000</span><span>・表示価格はすべて税込</span></div>
@@ -327,10 +340,31 @@ footer .wrap{border-top:1px solid rgba(243,239,232,.15);padding-top:28px;display
     <h3>プラス</h3>
     <div class="price"><span>月</span>¥14,800<small>税込</small></div>
     <p class="for">ホームページもSNSも、まとめて任せたい方に。</p>
-    <ul><li>スタンダードの内容すべて</li><li>軽い更新は回数無制限</li><li>毎月の改善提案</li><li>Instagram投稿の作成</li></ul>
+    <ul><li>スタンダードの内容すべて</li><li>軽い更新は回数無制限</li><li>毎月の改善提案</li><li>Instagram用リール 月2本込み</li></ul>
    </div>
   </div>
   <p class="rule reveal">公開後は、ライト以上へのご加入を基本としています。保守なしをご希望の場合は、サイトのデータをお渡しし、サーバー・ドメインはお客様でご用意いただきます。</p>
+ </div>
+</section>
+
+<section class="video" id="video">
+ <div class="wrap">
+  <div class="reveal">
+   <video src="gifts/sample/reel.mp4" poster="gifts/sample/cover.jpg" controls muted playsinline loop preload="none"></video>
+   <p class="cap">サンプル：お店の紹介リール（15秒）※ 架空のお店です</p>
+  </div>
+  <div class="reveal">
+   <div class="label">Short video</div>
+   <h2>Instagramの動画も、<br>まとめてお任せ。</h2>
+   <p class="lead">お店でスマホで撮った動画を送っていただくだけ。編集・文字入れ・BGM・投稿文まで、ICHIMAI. が仕上げます。</p>
+   <div class="plans">
+    <div class="plan"><h3>お試し</h3><div class="price"><span>月</span>¥6,980<small>税込</small></div><ul><li>リール 月2本</li></ul></div>
+    <div class="plan rec"><div class="badge">おすすめ</div><h3>ベーシック</h3><div class="price"><span>月</span>¥9,800<small>税込</small></div><ul><li>リール 月4本</li></ul></div>
+    <div class="plan"><h3>しっかり</h3><div class="price"><span>月</span>¥17,800<small>税込</small></div><ul><li>リール 月8本</li><li>ストーリー</li></ul></div>
+   </div>
+   <div class="setoff">ホームページの保守プランとセットなら、動画サブスクが毎月 ¥2,000 引き。</div>
+   <p class="gift">はじめての方には、お店の紹介リールを1本、無料でお作りしています（お試し）。お気軽にご相談ください。</p>
+  </div>
  </div>
 </section>
 
