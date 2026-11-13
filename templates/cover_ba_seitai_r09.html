@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.k{font-size:34px;letter-spacing:.32em;color:#8A8276}
+.t{font-size:112px;font-weight:700;line-height:1.36;margin-top:40px}
+.t .g{color:#2F5A45}
+.rule{width:110px;height:4px;background:#C9A98A;margin:56px auto}
+.s{font-size:50px;line-height:1.6;font-weight:700}
+.s .r{color:#B5452F}
+.ba{display:flex;align-items:center;gap:44px;margin:50px 0 10px}
+.mini{width:220px;height:400px;border-radius:34px;border:10px solid #1A1816;overflow:hidden;position:relative;background:#fff}
+.mb i{display:block;height:58px;background:#2b5aa8}
+.mb s{display:block;margin:10px 14px;height:8px;background:#d2d2d2}
+.mb u{display:block;margin:18px 14px 0;height:44px;border:3px solid #B5452F;border-radius:8px}
+.ma{background:#F7F5F0}
+.ma .h{height:150px;background:linear-gradient(165deg,#dfe7dc,#6f8f78)}
+.ma .n{position:absolute;left:18px;top:52px;color:#fff;font-size:36px;font-weight:700}
+.ma .p{margin:16px 14px 0;height:70px;border-radius:12px;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.06)}
+.ma .b{margin:16px 14px 0;height:44px;border-radius:99px;background:#2F5A45}
+.arrow{font-size:70px;color:#2F5A45}
+.lab{font-size:26px;letter-spacing:.3em;margin-top:14px;color:#8A8276}
+.logo{font-size:48px;font-weight:700;letter-spacing:.06em;margin-top:60px}
+.note{font-size:30px;color:#8A8276;margin-top:26px}
+.pill{display:inline-block;font-size:40px;font-weight:700;padding:24px 54px;border-radius:99px;margin-top:56px;background:#C9A98A;color:#1F1D1A}
+</style></head><body>
+<div class="c" id="cover">
+ <div class="k">BEFORE → AFTER</div>
+ <div class="t serif">整体院の<br>ホームページ、<br><span class="g">作り直してみた</span></div>
+ <div class="rule"></div>
+ <div class="s">予約、<span class="r">電話だけ</span>になってない？</div>
+ <div class="note">※架空のお店です</div>
+ <div class="logo serif">ICHIMAI.</div>
+</div>
+<div class="c" id="story" style="display:none;background:#1F1D1A;color:#F3EFE8">
+ <div class="k" style="color:#C9A98A">NEW REEL</div>
+ <div class="t serif" style="font-size:132px;line-height:1.3">予約、<br><span style="color:#E08B70">電話だけ？</span></div>
+ <div class="ba">
+  <div><div class="mini mb" style="border-color:#444"><i></i><s></s><s></s><s></s><s></s><s></s><s></s><u></u><s></s><s></s></div><div class="lab" style="color:#C9A98A">BEFORE</div></div>
+  <div class="arrow" style="color:#C9A98A">→</div>
+  <div><div class="mini ma" style="border-color:#444"><div class="h"></div><div class="n serif">あおば舎</div><div class="p"></div><div class="b"></div></div><div class="lab" style="color:#C9A98A">AFTER</div></div>
+ </div>
+ <div class="s" style="font-size:42px;font-weight:500;margin-top:40px">整体院のホームページを<br>夜に見た人も予約できる形に、<br>作り直してみました。</div>
+ <div class="pill">リールで公開中 ▶︎</div>
+ <div class="note" style="color:#9a9186">※架空のお店です ｜ ご相談はDMからお気軽に</div>
+ <div class="logo serif" style="font-size:44px;margin-top:50px">ICHIMAI.</div>
+</div>
+<script>
+const m=new URLSearchParams(location.search).get('m')||'cover';
+document.getElementById('cover').style.display=m=='cover'?'flex':'none';
+document.getElementById('story').style.display=m=='story'?'flex':'none';
+window.render=()=>{};
+</script></body></html>

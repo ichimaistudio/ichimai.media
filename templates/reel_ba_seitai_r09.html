@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F3EFE8}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#1F1D1A;position:relative}
+.serif{font-family:"Noto Serif CJK JP",serif}
+#glow{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 40%,rgba(255,255,255,.65),rgba(255,255,255,0))}
+/* hook */
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;background:#F3EFE8}
+#hook .t{font-size:168px;font-weight:700;line-height:1.3;letter-spacing:.02em}
+#hook .t .r{color:#B5452F}
+#hook .u{width:120px;height:5px;background:#C9A98A;margin:80px auto 0}
+/* top */
+#kick{position:absolute;left:0;right:0;top:140px;text-align:center;font-size:28px;letter-spacing:.2em;color:#8A8276;font-weight:500}
+#kick b{color:#2F5A45;font-weight:600}
+#hl{position:absolute;left:40px;right:40px;top:205px;height:270px}
+.h{position:absolute;left:0;right:0;text-align:center;font-size:66px;line-height:1.45;font-weight:700;letter-spacing:.02em}
+.h em{font-style:normal;color:#2F5A45}
+.h .r{color:#B5452F}
+/* phone */
+.phone{position:absolute;left:240px;top:500px;width:600px;height:1150px;border-radius:70px;background:#1A1816;padding:16px;box-shadow:0 36px 70px rgba(40,30,20,.20)}
+.screen{position:relative;width:452px;height:892px;zoom:1.2566;border-radius:44px;overflow:hidden;background:#fff}
+.pg{position:absolute;inset:0}
+/* BEFORE page */
+#bef{background:#fff;font-family:"Noto Sans CJK JP"}
+#bef .bar{position:absolute;top:0;left:0;right:0;height:120px;background:#2b5aa8;color:#fff;padding:62px 16px 0;font-size:17px;font-weight:700}
+#bef .bar small{display:block;font-size:10px;font-weight:400;opacity:.85}
+#bef .menu{position:absolute;top:120px;left:0;right:0;height:34px;background:#e7ecf5;font-size:10px;color:#2b5aa8;display:flex;justify-content:space-around;align-items:center}
+#bef .ttl{position:absolute;left:16px;right:16px;top:170px;font-size:14px;font-weight:700;color:#333;border-left:4px solid #2b5aa8;padding-left:8px}
+#bef .txt{position:absolute;left:16px;right:16px;top:200px;font-size:10.5px;line-height:1.75;color:#555}
+#bef .ph{position:absolute;left:16px;top:336px;width:120px;height:90px;background:#d9d9d9;color:#999;font-size:10px;display:flex;align-items:center;justify-content:center}
+#bef .txt2{position:absolute;left:146px;right:16px;top:336px;font-size:10px;line-height:1.7;color:#666}
+#bef .price{position:absolute;left:16px;right:16px;top:446px;font-size:11px;color:#666;padding:10px 12px;background:#f6f6f6}
+#bef .tel{position:absolute;left:16px;right:16px;top:500px;border:1px solid #c9d3e6;padding:12px;font-size:11px;line-height:1.7;color:#444}
+#bef .tel b{display:block;font-size:17px;color:#2b5aa8}
+#bef .txt3{position:absolute;left:16px;right:16px;top:620px;font-size:10px;line-height:1.75;color:#777}
+#bef .foot{position:absolute;left:0;right:0;bottom:0;height:60px;background:#2b5aa8;color:#fff;font-size:9px;text-align:center;padding-top:22px}
+/* AFTER page */
+#aft{background:#F7F5F0;opacity:0}
+#aft .nav{position:absolute;top:0;left:0;right:0;height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 16px;font-size:12px;letter-spacing:.24em;color:#4a5a50;z-index:2}
+#aft .nav b{font-family:"Noto Serif CJK JP";font-size:20px;letter-spacing:.12em;color:#22362b}
+#aft .hero{position:absolute;top:96px;left:0;right:0;height:300px;overflow:hidden;background:
+ radial-gradient(60% 60% at 75% 30%,rgba(255,250,238,.95),rgba(255,250,238,0) 70%),
+ linear-gradient(165deg,#dfe7dc 0%,#a9bfa9 55%,#6f8f78 100%)}
+#aft .hero svg{position:absolute;right:-10px;top:40px}
+#aft .hero .tg{position:absolute;left:26px;top:34px;color:#fff;font-size:11px;letter-spacing:.36em}
+#aft .hero .nm{position:absolute;left:24px;top:58px;color:#fff;font-family:"Noto Serif CJK JP";font-size:48px;font-weight:700;text-shadow:0 2px 14px rgba(30,50,40,.25)}
+#aft .hero .cp{position:absolute;left:26px;top:140px;color:#fff;font-family:"Noto Serif CJK JP";font-size:19px;line-height:1.7;font-weight:600;text-shadow:0 2px 10px rgba(30,50,40,.25)}
+#aft .card{position:absolute;left:20px;right:20px;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:0 6px 18px rgba(50,70,60,.08)}
+#aft .card h6{font-size:12px;letter-spacing:.2em;color:#8A8276;font-weight:500;margin-bottom:8px}
+#pr{top:418px;height:150px}
+#pr .r1{display:flex;justify-content:space-between;align-items:baseline;font-size:17px;color:#2a2a26;padding:6px 0;border-bottom:1px solid #eee}
+#pr .r1:last-child{border:none}
+#pr .r1 b{font-size:24px;color:#2F5A45}
+#pr .r1 small{font-size:12px;color:#8A8276}
+#bk{position:absolute;left:20px;right:20px;top:592px;background:#2F5A45;color:#fff;border-radius:999px;text-align:center;font-size:19px;font-weight:700;padding:18px 0;box-shadow:0 8px 18px rgba(47,90,69,.28)}
+#bk small{display:block;font-size:11px;font-weight:500;opacity:.85;margin-top:2px}
+#aft .tel2{position:absolute;left:20px;right:20px;top:690px;border:1.5px solid #cfc5b8;color:#3b332c;border-radius:999px;text-align:center;font-size:14px;padding:12px 0}
+#aft .acc{position:absolute;left:20px;right:20px;top:748px;font-size:12px;color:#7d776c;text-align:center;line-height:1.7}
+#aft .map{position:absolute;left:20px;right:20px;top:782px;height:96px;border-radius:18px;overflow:hidden;background:#E9E6DD}
+#aft .map i{position:absolute;background:#fff}
+#aft .map .pin{position:absolute;left:60%;top:28px;width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#B5452F}
+/* marks */
+.mark{position:absolute;border:7px solid #B5452F;border-radius:22px;opacity:0;z-index:3}
+.mark.ok{border-color:#2F5A45}
+.lab{position:absolute;background:#B5452F;color:#fff;font-size:38px;font-weight:700;padding:16px 30px;border-radius:16px;white-space:nowrap;box-shadow:0 12px 26px rgba(150,40,30,.22);opacity:0;z-index:3}
+.lab.ok{background:#2F5A45;box-shadow:0 12px 26px rgba(30,70,50,.22)}
+/* wipe */
+#wipe{position:absolute;inset:0;background:#2F5A45;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:6}
+#wipe .w1{font-size:52px;letter-spacing:.2em;opacity:.85}
+#wipe .w2{font-size:112px;font-weight:700;margin-top:28px}
+#wipe .w3{font-size:28px;margin-top:40px;opacity:.7;letter-spacing:.1em}
+/* plans */
+#plans{position:absolute;inset:0;background:#F3EFE8;display:none;flex-direction:column;align-items:center;padding-top:240px;z-index:7}
+#plans .k{font-size:34px;letter-spacing:.24em;color:#8A8276}
+#plans .p{font-size:150px;font-weight:700;line-height:1.1;margin-top:26px}
+#plans .p small{font-size:60px;margin-left:6px}
+#plans .p .y{font-size:72px;margin-right:10px}
+#plans .s{font-size:40px;font-weight:700;color:#2F5A45;margin-top:28px;background:#E5ECE6;padding:14px 34px;border-radius:999px}
+#plans .rows{margin-top:64px;width:920px}
+.row{display:flex;align-items:center;background:#fff;border-radius:26px;padding:28px 34px;margin-bottom:22px;box-shadow:0 8px 22px rgba(80,60,40,.06)}
+.row .n{width:250px;font-size:40px;font-weight:700;white-space:nowrap}
+.row .n small{display:block;font-size:24px;color:#8A8276;font-weight:500;margin-top:4px}
+.row .d{flex:1;font-size:28px;color:#5d554b;line-height:1.5}
+.row .v{font-size:42px;font-weight:700;color:#2F5A45;white-space:nowrap;text-align:right}
+.row .v small{font-size:24px;color:#8A8276;font-weight:500}
+.row.z{border:3px solid #C9A98A}
+#plans .tax{font-size:28px;color:#8A8276;margin-top:14px}
+/* end */
+#end{position:absolute;inset:0;background:#1F1D1A;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:120px;z-index:8}
+#end .logo{font-family:"Noto Serif CJK JP";font-size:150px;font-weight:700;letter-spacing:.04em}
+#end .tag{font-size:56px;margin-top:40px;line-height:1.6;font-weight:600}
+#end .rule{width:120px;height:3px;background:#C9A98A;margin:60px auto}
+#end .p{font-size:38px;line-height:1.8;color:#E6DED2}
+#end .cta{margin-top:70px;border:2px solid #C9A98A;color:#F3EFE8;border-radius:999px;padding:30px 70px;font-size:40px;font-weight:700}
+#end .fic{margin-top:40px;font-size:26px;color:#9a9186;letter-spacing:.08em}
+</style></head><body>
+<div id="glow"></div>
+<div id="kick">整体院のホームページ ｜ <b>※架空のお店です</b></div>
+<div id="hl">
+ <div class="h serif" id="h1">仕事帰りの、夜11時。<br><span class="r">電話は、もうつながらない。</span></div>
+ <div class="h serif" id="h2">料金も、わからない。<br><span class="r">「また今度」</span>に、なるかも。</div>
+ <div class="h serif" id="h3">夜でも、その場で<em>予約へ。</em><br>料金も、<em>先にわかる。</em></div>
+</div>
+<div class="phone" id="phone"><div class="screen">
+ <div class="pg" id="bef">
+  <div class="bar"><small>肩こり・腰痛・骨盤の調整</small>あおば舎整体院 公式ホームページ</div>
+  <div class="menu"><span>HOME</span><span>当院について</span><span>施術</span><span>アクセス</span><span>お問合せ</span></div>
+  <div class="ttl">ごあいさつ</div>
+  <div class="txt">このたびは当院のホームページをご覧いただき誠にありがとうございます。当院では一人ひとりのお身体の状態に合わせ、丁寧なカウンセリングと施術を心がけております。肩こり、腰痛、骨盤のゆがみなど、お身体のお悩みがございましたらお気軽にご相談ください。地域の皆さまの健康のお役に立てるよう、スタッフ一同努めてまいります。</div>
+  <div class="ph">写真</div>
+  <div class="txt2">当院の施術は、お身体全体のバランスを見ながら行います。初めての方もご安心ください。詳しくはお問い合わせください。</div>
+  <div class="price" id="bPrice">施術料金：詳しくはお問い合わせください</div>
+  <div class="tel" id="bTel">ご予約・お問い合わせはお電話で<b>TEL 042-XXX-XXXX</b>受付 9:00〜19:00（日・祝 休み）</div>
+  <div class="txt3" style="height:200px;overflow:hidden">※施術中はお電話に出られない場合がございます。恐れ入りますが時間をおいておかけ直しください。<br><br>■当院について<br>当院は開院以来、地域の皆さまに支えられてまいりました。お身体のことでお困りのことがございましたら、どんなことでもお気軽にお問い合わせください。駐車場はございませんので近隣のコインパーキングをご利用ください。</div>
+  <div class="foot">Copyright あおば舎整体院 All Rights Reserved.</div>
+ </div>
+ <div class="pg" id="aft">
+  <div class="nav"><b>あおば舎</b><span>MENU ≡</span></div>
+  <div class="hero">
+   <svg width="230" height="250" viewBox="0 0 230 250" fill="none">
+    <path d="M120 230C120 150 150 90 200 50" stroke="rgba(255,255,255,.75)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M150 120c-40-6-62-34-60-70 38 4 62 32 60 70z" fill="rgba(255,255,255,.55)"/>
+    <path d="M175 80c8-34 34-54 64-52-6 32-32 52-64 52z" fill="rgba(255,255,255,.45)"/>
+    <path d="M132 170c-34 6-62-10-74-40 32-8 62 8 74 40z" fill="rgba(255,255,255,.4)"/>
+   </svg>
+   <div class="tg">SEITAI</div><div class="nm">あおば舎</div>
+   <div class="cp">肩と腰のつらさに、<br>静かな60分を。</div>
+  </div>
+  <div class="card" id="pr"><h6>料金（税込）</h6>
+   <div class="r1">初回 60分 <small>カウンセリング込み</small><b>¥6,600</b></div>
+   <div class="r1">2回目以降 60分<b>¥5,500</b></div>
+  </div>
+  <div id="bk">ネット予約（24時間受付）<small>空き状況を見て、そのまま予約</small></div>
+  <div class="tel2">お電話でも　9:00〜19:00</div>
+  <div class="acc">駅から徒歩6分 ｜ 日・祝 休み</div>
+  <div class="map"><i style="left:0;right:0;top:40px;height:10px"></i><i style="top:0;bottom:0;left:38%;width:10px"></i><i style="left:0;right:0;top:76px;height:6px"></i><i style="top:0;bottom:0;left:78%;width:6px"></i><div class="pin"></div></div>
+ </div>
+</div></div>
+<div class="mark" id="mB1"></div><div class="lab" id="lB1">予約は、電話だけ（9〜19時）</div>
+<div class="mark" id="mB2"></div><div class="lab" id="lB2">料金は「お問い合わせください」</div>
+<div class="mark ok" id="mA1"></div><div class="lab ok" id="lA1">✓ 料金が、最初に見える</div>
+<div class="mark ok" id="mA2"></div><div class="lab ok" id="lA2">✓ 夜でも、ネット予約へ</div>
+<div id="hook"><div class="t serif">予約、<br><span class="r">電話だけ？</span></div><div class="u"></div></div>
+<div id="wipe"><div class="w1">ICHIMAI. で</div><div class="w2 serif">作り直すと</div><div class="w3">※架空のお店です</div></div>
+<div id="plans">
+ <div class="k">スマホで伝わるホームページ制作</div>
+ <div class="p serif"><span class="y">¥</span>49,800<small>〜</small></div>
+ <div class="s">予約ボタン・地図・スマホ対応</div>
+ <div class="rows">
+  <div class="row"><div class="n">梅<small>はじめの一枚</small></div><div class="d">1ページ・修正2回<br>約2週間</div><div class="v">¥49,800</div></div>
+  <div class="row"><div class="n">竹<small>お店の顔</small></div><div class="d">最大5ページ<br>予約・Instagram連携</div><div class="v">¥98,000</div></div>
+  <div class="row z"><div class="n">初期費用<br>0円プラン</div><div class="d">梅の制作＋保守を月額で<br>（最低24か月）</div><div class="v">月¥9,800</div></div>
+ </div>
+ <div class="tax">表示はすべて税込</div>
+</div>
+<div id="end">
+ <div class="logo">ICHIMAI.</div>
+ <div class="tag serif">夜に見た人も、<br>取りこぼさない。</div>
+ <div class="rule"></div>
+ <div class="p">スマホで伝わるホームページ制作<br>公開後の更新も、まるごとお任せ</div>
+ <div class="cta">ご相談はプロフィール／DMから</div>
+ <div class="fic">※登場するお店は架空です</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const prog=(t,s,d)=>ease((t-s)/d);
+const out=(t,s,d)=>1-ease((t-s)/d);
+function show(el,p,dy=36,sc=false){el.style.opacity=p;el.style.transform=sc?`scale(${.92+.08*p})`:`translateY(${(1-p)*dy}px)`}
+function place(mid,lid,tid,pad,side){
+ const r=$(tid).getBoundingClientRect(),m=$(mid),l=$(lid);
+ m.style.left=(r.left-pad)+'px';m.style.top=(r.top-pad)+'px';m.style.width=(r.width+pad*2)+'px';m.style.height=(r.height+pad*2)+'px';
+ const lw=l.offsetWidth,lh=l.offsetHeight;
+ const y=side==='above'?r.top-pad-lh-16:r.bottom+pad+16;
+ l.style.left=(540-lw/2)+'px';l.style.top=y+'px';
+}
+const T={hk:1.7,ph:1.5,h1:1.85,b1:2.6,b2:4.1,h1e:5.6,h2:5.75,h2e:8.0,w0:8.0,w1:8.4,w2:9.3,w3:9.75,h3:9.75,a1:10.6,a2:11.9,ae:14.0,pl:14.1,end:19.0};
+let laid=false;
+window.render=function(t){
+ const hk=out(t,T.hk,.3); $('hook').style.opacity=hk; $('hook').style.display=hk<=0?'none':'flex';
+ $('hook').style.transform=`scale(${1+0.02*cl(t/T.hk)})`;
+ const ph=prog(t,T.ph,.5); show($('phone'),ph,80); show($('kick'),ph,10);
+ if(!laid){ $('phone').style.transform='none'; $('aft').style.opacity=1; $('bef').style.opacity=1;
+  place('mB1','lB1','bTel',8,'below');place('mB2','lB2','bPrice',8,'above');
+  place('mA1','lA1','pr',8,'above');place('mA2','lA2','bk',8,'below'); laid=true; }
+ show($('h1'),Math.min(prog(t,T.h1,.35),out(t,T.h1e,.2)));
+ show($('h2'),Math.min(prog(t,T.h2,.35),out(t,T.h2e-.2,.2)));
+ show($('h3'),prog(t,T.h3,.4));
+ [['mB1','lB1',T.b1],['mB2','lB2',T.b2]].forEach(([m,l,s])=>{const p=Math.min(prog(t,s,.3),t<T.w0?1:0);show($(m),p,0,true);show($(l),p,18);});
+ const sw=t>=T.w1?1:0; $('bef').style.opacity=1-sw; $('aft').style.opacity=sw;
+ [['mA1','lA1',T.a1],['mA2','lA2',T.a2]].forEach(([m,l,s])=>{const p=Math.min(prog(t,s,.3),out(t,T.ae,.25));show($(m),p,0,true);show($(l),p,18);});
+ let w; if(t<T.w0) w=-1; else if(t<T.w1) w=-1+ease((t-T.w0)/(T.w1-T.w0)); else if(t<T.w2) w=0; else w=ease((t-T.w2)/(T.w3-T.w2));
+ $('wipe').style.transform=`translateX(${w*100}%)`; $('wipe').style.display=(t<T.w0||t>T.w3)?'none':'flex';
+ const pp=prog(t,T.pl,.45); $('plans').style.display=t<T.pl?'none':'flex'; $('plans').style.opacity=pp;
+ [...$('plans').querySelectorAll('.k,.p,.s,.row,.tax')].forEach((c,i)=>show(c,prog(t,T.pl+.15+i*.35,.45),30));
+ const e=prog(t,T.end,.5); $('end').style.opacity=e; $('end').style.display=t<T.end?'none':'flex';
+ [...$('end').children].forEach((c,i)=>show(c,prog(t,T.end+.2+i*.22,.45),28));
+};
+render(0);
+</script>
+</body></html>
