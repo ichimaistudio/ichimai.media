@@ -1,5 +1,6 @@
-"""営業DM用：お店のスマホLP（390px幅）を組み立てて、DMに添付する画像（01〜05.jpg）を書き出す。
+"""営業DM用：お店のスマホLP（390px幅）を組み立てて、公開ページ（--web）またはDMに添付する画像（01〜05.jpg）を書き出す。
 使い方: python3 tools/dm_lp.py <shop.json> <hero.html> <出力フォルダ>
+        python3 tools/dm_lp.py --web <shop.json> <hero.html> p/<id>-<ランダム>/index.html
   shop.json : 1店分のデータ（形式は templates/dm_lp_sample.json）。確かめた事実だけを入れ、分からない所は [ ] にする。
   hero.html : トップ案（Design）のスマホ1画面目の中身（<div style="width:390px;height:844px">…</div>）。
 フォントは初回に tools/dm_fonts.py が /tmp/dm_fonts に取ってくる。
@@ -9,9 +10,21 @@ from playwright.sync_api import sync_playwright
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 FD = '/tmp/dm_fonts'
-if not os.path.exists(os.path.join(FD, 'fonts.css')):
-    import subprocess; subprocess.run([sys.executable, os.path.join(BASE, 'dm_fonts.py')], check=True)
-FONTS = open(os.path.join(FD, 'fonts.css')).read()
+def local_fonts():
+    if not os.path.exists(os.path.join(FD, 'fonts.css')):
+        subprocess.run([sys.executable, os.path.join(BASE, 'dm_fonts.py')], check=True)
+    return open(os.path.join(FD, 'fonts.css')).read()
+# 公開ページ用（Google Fonts から読む）
+GF = {'Zen Kaku Gothic New': 'wght@400;500;700', 'Noto Serif JP': 'wght@400;500;600;700', 'Italiana': '',
+      'Zen Maru Gothic': 'wght@400;500;700;900', 'Quicksand': 'wght@500;700', 'Noto Sans JP': 'wght@400;500;700',
+      'Cormorant Garamond': 'ital,wght@0,500;0,600;1,500', 'Shippori Mincho': 'wght@500;600;700;800',
+      'DM Serif Display': '', 'Playfair Display': 'wght@400;500', 'M PLUS 1p': 'wght@400;500;700',
+      'Marcellus': '', 'Dela Gothic One': '', 'Zen Kaku Gothic Antique': 'wght@400;500;700'}
+def gf_link(text):
+    fams = [f for f in GF if f in text or f.replace(' ', '') in text]
+    if not fams: return ''
+    q = '&'.join('family=' + f.replace(' ', '+') + (':' + GF[f] if GF[f] else '') for f in fams)
+    return f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?{q}&display=swap" rel="stylesheet">'
 E = html.escape
 
 def sec(t, inner, bg=None):
@@ -21,7 +34,7 @@ def head(t, label, h):
     return (f'<p class="lb">{E(label)}</p>'
             f'<h2 class="h2">{h}</h2>')
 
-def build(s):
+def build(s, web=False):
     t = s['theme']
     out = []
     # 1. hero（既存のトップ案）
@@ -59,7 +72,7 @@ def build(s):
     out.append(f'<section class="cta"><h2 class="h2" style="color:#fff">{ct["h"]}</h2><p class="p" style="color:rgba(255,255,255,.88)">{ct["p"]}</p>'
                f'<a class="b1">{E(ct["b1"])}</a>' + (f'<a class="b2">{E(ct["b2"])}</a>' if ct.get('b2') else '') + '</section>')
     out.append(f'<footer><div class="logo">{s["logo"]}</div><p>ご提案用イメージ（写真・文章・料金は仮のものです）<br>制作：ICHIMAI.</p></footer>')
-    css = f"""{FONTS}
+    css = f"""{"" if web else local_fonts()}
 body{{margin:0;background:{t['bg']};color:{t['ink']};font-family:{t['bf']};-webkit-font-smoothing:antialiased}}
 a{{color:inherit;text-decoration:none}} *{{box-sizing:border-box}}
 .page{{width:390px}} section{{position:relative}}
@@ -92,7 +105,27 @@ a{{color:inherit;text-decoration:none}} *{{box-sizing:border-box}}
 footer{{padding:36px 24px 30px;text-align:center}} footer .logo{{margin-bottom:12px}}
 footer p{{margin:0;font-size:10px;line-height:1.8;color:{t['sub']}}}
 """
-    return f"<!doctype html><html lang='ja'><head><meta charset='utf-8'><style>{css}</style></head><body><div class='page'>{''.join(out)}</div></body></html>"
+    if not web:
+        return f"<!doctype html><html lang='ja'><head><meta charset='utf-8'><style>{css}</style></head><body><div class='page'>{''.join(out)}</div></body></html>"
+    # 公開ページ：スマホ幅に合わせ、ご提案用であることを上下に明記。検索エンジンには載せない。
+    body = ''.join(out)
+    name = E(s['name'])
+    web_css = css + f"""
+html{{background:{t['bg2']}}} body{{max-width:430px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.06)}}
+.page{{width:100%}} .hero>div{{width:100%!important;height:auto!important;min-height:min(100svh,844px)}}
+.notice{{position:sticky;top:0;z-index:10;background:{t['ink']};color:#fff;font-size:11px;line-height:1.6;padding:8px 14px;text-align:center}}
+.ichimai{{padding:28px 24px 40px;text-align:center;border-top:1px solid {t['line']};font-size:12px;line-height:1.9;color:{t['sub']}}}
+.ichimai a{{display:inline-block;margin-top:12px;padding:12px 20px;border-radius:999px;background:{t['ink']};color:#fff;font-weight:700;font-size:13px}}
+"""
+    return (f"<!doctype html><html lang='ja'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
+            f"<meta name='robots' content='noindex,nofollow'><title>{name}様 ホームページのご提案イメージ｜ICHIMAI.</title>"
+            f"{gf_link(body + json.dumps(t))}<style>{web_css}</style></head><body>"
+            f"<div class='notice'>ICHIMAI. が {name} 様にご提案するためのイメージです（公式サイトではありません）</div>"
+            f"<div class='page'>{body}</div>"
+            f"<div class='ichimai'>このページは、Web制作スタジオ ICHIMAI.（イチマイ）が作ったご提案用のイメージです。<br>写真・文章・料金は仮のものです。<br>"
+            f"<a href='https://www.instagram.com/ichimai.studio/'>ICHIMAI. に相談する（Instagram）</a><br>"
+            f"<span style='display:block;margin-top:10px'>料金とプラン：<a style='all:unset;text-decoration:underline;cursor:pointer' href='https://ichimaistudio.github.io/ichimai.media/'>ichimaistudio.github.io/ichimai.media</a></span></div>"
+            f"</body></html>")
 
 def render(shops, ids, outdir):
     os.makedirs(outdir, exist_ok=True)
@@ -123,7 +156,13 @@ def render(shops, ids, outdir):
         b.close()
 
 if __name__ == '__main__':
-    import subprocess
-    shop = json.load(open(sys.argv[1])); shop['_hero'] = sys.argv[2]
-    shop.setdefault('id', 'shop')
-    render([shop], [], sys.argv[3])
+    # 画像: python3 tools/dm_lp.py <shop.json> <hero.html> <出力フォルダ>
+    # 公開ページ: python3 tools/dm_lp.py --web <shop.json> <hero.html> <出力する index.html>
+    if sys.argv[1] == '--web':
+        shop = json.load(open(sys.argv[2])); shop['_hero'] = sys.argv[3]
+        os.makedirs(os.path.dirname(os.path.abspath(sys.argv[4])), exist_ok=True)
+        open(sys.argv[4], 'w').write(build(shop, web=True)); print('wrote', sys.argv[4])
+    else:
+        shop = json.load(open(sys.argv[1])); shop['_hero'] = sys.argv[2]
+        shop.setdefault('id', 'shop')
+        render([shop], [], sys.argv[3])
