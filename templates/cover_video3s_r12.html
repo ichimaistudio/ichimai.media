@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.k{font-size:34px;letter-spacing:.32em;color:#8A8276}
+.t{font-size:124px;font-weight:700;line-height:1.34;margin-top:40px}
+.t .g{color:#2F5A45}
+.rule{width:110px;height:4px;background:#C9A98A;margin:56px auto}
+.list{display:flex;flex-direction:column;gap:22px;align-items:stretch;width:760px}
+.it{display:flex;align-items:center;gap:26px;background:#fff;border-radius:24px;padding:24px 34px;font-size:46px;font-weight:700;box-shadow:0 8px 22px rgba(80,60,40,.06)}
+.it i{font-style:normal;width:68px;height:68px;line-height:68px;border-radius:50%;background:#2F5A45;color:#F3EFE8;font-size:38px;text-align:center;flex:none}
+.logo{font-size:48px;font-weight:700;letter-spacing:.06em;margin-top:60px}
+.note{font-size:30px;color:#8A8276;margin-top:34px}
+.pill{display:inline-block;font-size:40px;font-weight:700;padding:24px 54px;border-radius:99px;margin-top:60px;background:#C9A98A;color:#1F1D1A}
+#story .it{background:#2B2824;color:#F3EFE8;box-shadow:none}
+#story .it i{background:#C9A98A;color:#1F1D1A}
+</style></head><body>
+<div class="c" id="cover">
+ <div class="k">お店のショート動画</div>
+ <div class="t serif">リールは、<br><span class="g">最初の3秒</span>で<br>決まる。</div>
+ <div class="rule"></div>
+ <div class="list">
+  <div class="it"><i>1</i>結論から言う</div>
+  <div class="it"><i>2</i>見る人に問いかける</div>
+  <div class="it"><i>3</i>手元のアップから</div>
+ </div>
+ <div class="note">※例に出てくるお店は架空です</div>
+ <div class="logo serif">ICHIMAI.</div>
+</div>
+<div class="c" id="story" style="display:none;background:#1F1D1A;color:#F3EFE8">
+ <div class="k" style="color:#C9A98A">NEW REEL</div>
+ <div class="t serif" style="font-size:120px">最初の<span style="color:#9CC3AA">3秒</span>、<br>なに映ってる？</div>
+ <div class="rule"></div>
+ <div style="font-size:42px;line-height:1.7;margin-bottom:46px;color:#E6DED2">お店のリールの「始め方」を<br>3つにまとめました。</div>
+ <div class="list">
+  <div class="it"><i>1</i>結論から言う</div>
+  <div class="it"><i>2</i>見る人に問いかける</div>
+  <div class="it"><i>3</i>手元のアップから</div>
+ </div>
+ <div class="pill">リールで公開中 ▶︎</div>
+ <div class="note" style="color:#9a9186">※例に出てくるお店は架空です ｜ ご相談はDMから</div>
+ <div class="logo serif" style="font-size:44px;margin-top:50px">ICHIMAI.</div>
+</div>
+<script>
+const m=new URLSearchParams(location.search).get('m')||'cover';
+document.getElementById('cover').style.display=m=='cover'?'flex':'none';
+document.getElementById('story').style.display=m=='story'?'flex':'none';
+window.render=()=>{};
+</script></body></html>

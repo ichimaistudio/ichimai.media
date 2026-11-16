@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F3EFE8}
+body{font-family:"Noto Sans CJK JP",sans-serif;color:#1F1D1A;position:relative}
+.serif{font-family:"Noto Serif CJK JP",serif}
+#glow{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 42%,rgba(255,255,255,.65),rgba(255,255,255,0))}
+/* hook */
+#hook{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:9;background:#F3EFE8}
+#hook .t{font-size:128px;font-weight:700;line-height:1.38;letter-spacing:.02em}
+#hook .t .g{color:#2F5A45}
+#hook .u{width:120px;height:5px;background:#C9A98A;margin:80px auto 0}
+/* top */
+#kick{position:absolute;left:0;right:0;top:140px;text-align:center;font-size:28px;letter-spacing:.2em;color:#8A8276;font-weight:500}
+#kick b{color:#2F5A45;font-weight:600}
+#hl{position:absolute;left:40px;right:40px;top:200px;height:280px}
+.h{position:absolute;left:0;right:0;text-align:center;line-height:1.45;font-weight:700;letter-spacing:.02em;opacity:0}
+.h .a{font-size:66px}
+.h .b{font-size:38px;font-weight:500;color:#5d554b;margin-top:18px;font-family:"Noto Sans CJK JP"}
+.h .r{color:#B5452F}
+.h .g{color:#2F5A45}
+.h .num{display:inline-block;width:84px;height:84px;line-height:84px;border-radius:50%;background:#2F5A45;color:#F3EFE8;font-size:48px;margin-right:22px;vertical-align:8px;font-family:"Noto Sans CJK JP"}
+/* phone */
+.phone{position:absolute;left:265px;top:510px;width:550px;height:1090px;border-radius:66px;background:#1A1816;padding:15px;box-shadow:0 36px 70px rgba(40,30,20,.20);opacity:0}
+.screen{position:relative;width:520px;height:1060px;border-radius:52px;overflow:hidden;background:#fff}
+.sc{position:absolute;inset:0;opacity:0}
+.igbar{position:absolute;left:24px;right:24px;top:30px;height:5px;border-radius:3px;background:rgba(255,255,255,.45);z-index:5}
+.igbar i{display:block;height:100%;width:0;border-radius:3px;background:#fff}
+.timer{position:absolute;right:26px;top:54px;z-index:5;background:rgba(31,29,26,.72);color:#fff;font-size:26px;font-weight:700;padding:8px 18px;border-radius:999px;letter-spacing:.04em}
+/* S0 exterior */
+#s0{background:linear-gradient(180deg,#E8E1D4 0%,#EFE8DC 58%,#CFC5B5 58%,#C2B7A6 100%)}
+#s0 .fac{position:absolute;left:50px;right:50px;top:250px;height:400px;background:#F8F4EC;border:3px solid #D8CDBC}
+#s0 .awn{position:absolute;left:30px;right:30px;top:250px;height:70px;background:repeating-linear-gradient(90deg,#C9A98A 0 40px,#F3EFE8 40px 80px);border-radius:0 0 14px 14px;box-shadow:0 8px 12px rgba(80,60,40,.12)}
+#s0 .sign{position:absolute;left:0;right:0;top:340px;text-align:center;font-size:30px;color:#6b5a48;letter-spacing:.12em}
+#s0 .door{position:absolute;left:200px;width:120px;top:420px;height:230px;background:#8E7259;border-radius:60px 60px 0 0}
+#s0 .win{position:absolute;top:430px;width:100px;height:120px;background:#DCE3DE;border:6px solid #B8A48E}
+#s0 .pot{position:absolute;top:600px;width:56px;height:50px;background:#9a7b60;border-radius:0 0 12px 12px}
+#s0 .pot:before{content:"";position:absolute;left:-10px;top:-46px;width:76px;height:56px;border-radius:50%;background:#7E9C86}
+#s0 .hello{position:absolute;left:30px;right:30px;bottom:150px;text-align:center;color:#fff;font-size:40px;font-weight:700;line-height:1.5;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+#s0 .scene{position:absolute;inset:0;transform-origin:50% 45%}
+/* S1 conclusion */
+#s1{background:linear-gradient(180deg,#3A2E25 0%,#5A4636 100%)}
+#s1 .big{position:absolute;left:0;right:0;top:170px;text-align:center;color:#FFF7EC;font-size:84px;font-weight:700;line-height:1.35}
+#s1 .big span{color:#F0C89A}
+#s1 .tray{position:absolute;left:46px;right:46px;top:560px;height:380px;border-radius:24px;background:#2A221C;box-shadow:inset 0 0 0 10px #4A3B2F}
+.ck{position:absolute;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#F2CF97 0%,#D9A764 55%,#B9834A 100%);box-shadow:0 6px 10px rgba(0,0,0,.35)}
+.ck:after{content:"";position:absolute;left:30px;top:34px;width:12px;height:9px;border-radius:50%;background:#6B4429;box-shadow:30px 14px 0 #6B4429,10px 34px 0 #6B4429,40px -6px 0 #6B4429}
+#s1 .steam{position:absolute;width:10px;height:90px;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.35));top:480px}
+/* S2 question */
+#s2{background:linear-gradient(180deg,#E3EBE4 0%,#CFDDD2 100%)}
+#s2 .big{position:absolute;left:0;right:0;top:170px;text-align:center;color:#22362b;font-size:80px;font-weight:700;line-height:1.38}
+#s2 .box{position:absolute;left:150px;top:620px;width:220px;height:190px;background:#F8F4EC;border-radius:10px;box-shadow:0 16px 26px rgba(40,70,50,.18)}
+#s2 .box:before{content:"";position:absolute;left:96px;top:0;width:28px;height:100%;background:#2F5A45}
+#s2 .box:after{content:"";position:absolute;left:0;top:80px;width:100%;height:28px;background:#2F5A45}
+#s2 .lid{position:absolute;left:138px;top:592px;width:244px;height:46px;background:#FFFDF8;border-radius:8px;box-shadow:0 6px 12px rgba(40,70,50,.12);z-index:1}
+#s2 .lid:after{content:"";position:absolute;left:108px;top:0;width:28px;height:100%;background:#2F5A45}
+#s2 .bow{position:absolute;left:205px;top:546px;width:110px;height:60px;z-index:2}
+#s2 .bow i{position:absolute;top:0;width:54px;height:48px;border:12px solid #2F5A45;border-radius:50%}
+#s2 .q{position:absolute;right:70px;top:540px;font-size:120px;font-weight:700;color:#2F5A45;opacity:.3}
+/* S3 close-up */
+#s3{background:radial-gradient(circle at 50% 60%,#F6EBDB 0%,#E2CFB6 100%)}
+#s3 .big{position:absolute;left:0;right:0;top:170px;text-align:center;color:#3A2E25;font-size:84px;font-weight:700;line-height:1.35}
+#s3 .half{position:absolute;top:560px;width:180px;height:360px;overflow:hidden}
+#s3 .half i{position:absolute;top:0;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 40% 34%,#F2CF97 0%,#D9A764 55%,#B9834A 100%)}
+#s3 #hL{left:80px}#s3 #hL i{left:0}
+#s3 #hR{left:260px}#s3 #hR i{left:-180px}
+#s3 .in{position:absolute;top:0;width:22px;height:100%;background:repeating-linear-gradient(180deg,#F3DDB4 0 14px,#E9C88F 14px 26px)}
+#s3 #hL .in{right:0}#s3 #hR .in{left:0}
+#s3 .crumb{position:absolute;width:16px;height:16px;border-radius:40%;background:#D9A764}
+/* labels under heads */
+.chip{position:absolute;left:50%;top:1640px;transform:translateX(-50%);background:#2F5A45;color:#fff;font-size:36px;font-weight:700;padding:16px 34px;border-radius:999px;white-space:nowrap;opacity:0;z-index:4}
+.chip.r{background:#B5452F}
+/* wipe */
+#wipe{position:absolute;inset:0;background:#2F5A45;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:7;text-align:center}
+#wipe .w1{font-size:52px;letter-spacing:.14em;opacity:.85}
+#wipe .w2{font-size:120px;font-weight:700;margin-top:28px;line-height:1.3}
+#wipe .w3{font-size:34px;margin-top:44px;opacity:.75;letter-spacing:.08em}
+/* plans */
+#plans{position:absolute;inset:0;background:#F3EFE8;display:none;flex-direction:column;align-items:center;padding-top:330px;z-index:8}
+#plans .k{font-size:34px;letter-spacing:.2em;color:#8A8276}
+#plans .p{font-size:84px;font-weight:700;line-height:1.35;margin-top:26px;text-align:center}
+#plans .p .g{color:#2F5A45}
+#plans .s{font-size:36px;color:#5d554b;margin-top:26px;text-align:center;line-height:1.6}
+#plans .rows{margin-top:52px;width:920px}
+.row{display:flex;align-items:center;background:#fff;border-radius:26px;padding:26px 34px;margin-bottom:20px;box-shadow:0 8px 22px rgba(80,60,40,.06)}
+.row .n{width:250px;font-size:40px;font-weight:700;white-space:nowrap}
+.row .d{flex:1;font-size:30px;color:#5d554b;line-height:1.5}
+.row .v{font-size:44px;font-weight:700;color:#2F5A45;white-space:nowrap;text-align:right}
+.row .v small{font-size:26px}
+#plans .set{margin-top:16px;font-size:36px;font-weight:700;color:#1F1D1A;background:#EADFD0;border-radius:999px;padding:18px 40px}
+#plans .set b{color:#2F5A45}
+#plans .tax{font-size:28px;color:#8A8276;margin-top:20px}
+/* end */
+#end{position:absolute;inset:0;background:#1F1D1A;color:#F3EFE8;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:120px;z-index:10}
+#end .logo{font-family:"Noto Serif CJK JP";font-size:150px;font-weight:700;letter-spacing:.04em}
+#end .tag{font-size:58px;margin-top:40px;line-height:1.6;font-weight:600}
+#end .rule{width:120px;height:3px;background:#C9A98A;margin:60px auto}
+#end .p{font-size:38px;line-height:1.8;color:#E6DED2}
+#end .cta{margin-top:70px;border:2px solid #C9A98A;color:#F3EFE8;border-radius:999px;padding:30px 70px;font-size:40px;font-weight:700}
+#end .fic{margin-top:40px;font-size:26px;color:#9a9186;letter-spacing:.08em}
+</style></head><body>
+<div id="glow"></div>
+<div id="kick">お店のショート動画 ｜ <b>※架空のお店です</b></div>
+<div id="hl">
+ <div class="h serif" id="h0"><div class="a">よくある始まり方は、<br>外観と「こんにちは」。</div></div>
+ <div class="h serif" id="h0b"><div class="a">まだ<span class="r">何のお店か</span>、<br>伝わらないうちに…</div><div class="b">次の動画へ、行かれてしまうかも。</div></div>
+ <div class="h serif" id="h1"><div class="a"><span class="num">1</span>結論から言う</div><div class="b">いちばん伝えたいことを、最初の画面に</div></div>
+ <div class="h serif" id="h2"><div class="a"><span class="num">2</span>見る人に問いかける</div><div class="b">「自分のことだ」と思える一言から</div></div>
+ <div class="h serif" id="h3"><div class="a"><span class="num">3</span>手元のアップから</div><div class="b">スマホを近づけて、動きを撮るだけ</div></div>
+</div>
+<div class="phone" id="phone"><div class="screen">
+ <div class="igbar"><i id="bar"></i></div>
+ <div class="timer" id="timer">0:00</div>
+ <div class="sc" id="s0"><div class="scene" id="s0in">
+  <div class="fac"></div><div class="awn"></div>
+  <div class="sign serif">焼き菓子　まるめ舎</div>
+  <div class="win" style="left:80px"></div><div class="win" style="left:340px"></div>
+  <div class="door"></div>
+  <div class="pot" style="left:100px"></div><div class="pot" style="left:364px"></div>
+ </div>
+  <div class="hello">こんにちは！<br>焼き菓子 まるめ舎です</div>
+ </div>
+ <div class="sc" id="s1">
+  <div class="big serif">焼きたては、<br><span>15時。</span></div>
+  <div class="steam" style="left:150px"></div><div class="steam" style="left:260px"></div><div class="steam" style="left:370px"></div>
+  <div class="tray">
+   <div class="ck" style="left:36px;top:40px"></div><div class="ck" style="left:166px;top:40px"></div><div class="ck" style="left:296px;top:40px"></div>
+   <div class="ck" style="left:36px;top:160px"></div><div class="ck" style="left:166px;top:160px"></div><div class="ck" style="left:296px;top:160px"></div>
+   <div class="ck" style="left:100px;top:262px;width:90px;height:90px"></div><div class="ck" style="left:240px;top:262px;width:90px;height:90px"></div>
+  </div>
+ </div>
+ <div class="sc" id="s2">
+  <div class="big serif">手みやげ、<br>迷って<br>ませんか？</div>
+  <div class="q serif">?</div>
+  <div class="bow"><i style="left:0;transform:rotate(-20deg)"></i><i style="right:0;transform:rotate(20deg)"></i></div>
+  <div class="lid"></div><div class="box"></div>
+ </div>
+ <div class="sc" id="s3">
+  <div class="big serif">割ると、<br>こう。</div>
+  <div class="half" id="hL"><i></i><div class="in"></div></div>
+  <div class="half" id="hR"><i></i><div class="in"></div></div>
+  <div class="crumb" id="c1" style="left:250px;top:700px"></div>
+  <div class="crumb" id="c2" style="left:262px;top:760px;width:12px;height:12px"></div>
+  <div class="crumb" id="c3" style="left:244px;top:820px;width:10px;height:10px"></div>
+  <div class="crumb" id="c4" style="left:270px;top:650px;width:12px;height:12px"></div>
+ </div>
+</div></div>
+<div class="chip r" id="chip0">3秒たっても、まだ「何のお店？」</div>
+<div class="chip" id="chip1">0秒目で「15時に焼きたて」が伝わる</div>
+<div class="chip" id="chip2">手みやげを探している人に向けた一言</div>
+<div class="chip" id="chip3">言葉がなくても「おいしそう」</div>
+<div id="hook"><div class="t serif">最初の<span class="g">3秒</span>、<br>なに映ってる？</div><div class="u"></div></div>
+<div id="wipe"><div class="w1">最初の3秒は</div><div class="w2 serif">こう変える</div><div class="w3">※架空のお店です</div></div>
+<div id="plans">
+ <div class="k">ICHIMAI. のショート動画サブスク</div>
+ <div class="p serif">撮るのは、<span class="g">スマホでOK。</span></div>
+ <div class="s">撮った素材を送るだけ。<br>編集・テロップ・BGM・投稿文までお任せ</div>
+ <div class="rows">
+  <div class="row"><div class="n">お試し</div><div class="d">リール 月2本</div><div class="v">月¥6,980</div></div>
+  <div class="row"><div class="n">ベーシック</div><div class="d">リール 月4本</div><div class="v">月¥9,800</div></div>
+  <div class="row"><div class="n">しっかり</div><div class="d">リール8本＋ストーリー</div><div class="v">月¥17,800</div></div>
+ </div>
+ <div class="set">ホームページ保守とセットで <b>毎月¥2,000引き</b></div>
+ <div class="tax">表示はすべて税込</div>
+</div>
+<div id="end">
+ <div class="logo">ICHIMAI.</div>
+ <div class="tag serif">最初の3秒から、<br>いっしょに考えます。</div>
+ <div class="rule"></div>
+ <div class="p">お店のショート動画・ホームページ制作<br>公開後の更新も、まるごとお任せ</div>
+ <div class="cta">ご相談はプロフィール／DMから</div>
+ <div class="fic">※登場するお店は架空です</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>{x=cl(x);return 1-Math.pow(1-x,3)};
+const prog=(t,s,d)=>ease((t-s)/d);
+const out=(t,s,d)=>1-ease((t-s)/d);
+function show(el,p,dy=36,sc=false){el.style.opacity=p;el.style.transform=sc?`scale(${.92+.08*p})`:`translateY(${(1-p)*dy}px)`}
+function showChip(el,p){el.style.opacity=p;el.style.transform=`translateX(-50%) translateY(${(1-p)*18}px)`}
+// timeline
+const T={hk:1.6,ph:1.4,s0:1.4,h0:1.7,h0b:4.0,c0:4.75,w0:6.3,w1:6.7,w2:7.5,w3:7.9,
+ p1:7.9,p2:10.6,p3:13.3,pe:16.0,pl:16.0,end:20.6,dur:25};
+window.render=function(t){
+ const hk=out(t,T.hk,.3); $('hook').style.opacity=hk; $('hook').style.display=hk<=0?'none':'flex';
+ $('hook').style.transform=`scale(${1+0.02*cl(t/T.hk)})`;
+ const ph=prog(t,T.ph,.5); show($('phone'),ph,80); show($('kick'),ph,10);
+ // which screen
+ const seg=t<T.p1?0:t<T.p2?1:t<T.p3?2:3;
+ ['s0','s1','s2','s3'].forEach((id,i)=>{$(id).style.opacity=(i===seg)?1:0});
+ // segment local time & timer
+ const st=[T.s0,T.p1,T.p2,T.p3][seg];
+ let lt=Math.max(0,t-st);
+ if(seg===0){ lt=Math.max(0,t-T.h0); }
+ const shown=Math.min(3,Math.floor(lt));
+ $('timer').textContent='0:0'+(seg===0?Math.min(4,Math.floor(lt)):Math.min(2,Math.floor(lt)));
+ $('timer').style.background=(seg===0&&lt>=3)?'rgba(181,69,47,.92)':'rgba(31,29,26,.72)';
+ $('bar').style.width=(seg===0?cl(lt/15):cl(lt/15))*100+'%';
+ // s0 slow zoom
+ $('s0in').style.transform=`scale(${1+0.04*cl((t-T.s0)/5)})`;
+ // s1 steam
+ [...document.querySelectorAll('#s1 .steam')].forEach((e,i)=>{const k=((t*0.8+i*.33)%1);e.style.transform=`translateY(${-k*60}px)`;e.style.opacity=(1-k)*.9});
+ // s3 break
+ const br=prog(t,T.p3+.5,.8);
+ $('hL').style.transform=`translateX(${-br*40}px) rotate(${-br*8}deg)`;
+ $('hR').style.transform=`translateX(${br*40}px) rotate(${br*8}deg)`;
+ ['c1','c2','c3','c4'].forEach((c,i)=>{const p=cl((t-T.p3-.6)/1.2);$(c).style.opacity=p>0&&p<1?1:0;$(c).style.transform=`translate(${(i%2?1:-1)*p*30}px,${p*p*220}px)`});
+ // headlines
+ show($('h0'),Math.min(prog(t,T.h0,.35),out(t,T.h0b-.25,.2)));
+ show($('h0b'),Math.min(prog(t,T.h0b,.35),t<T.w1?1:0));
+ showChip($('chip0'),Math.min(prog(t,T.c0,.3),t<T.w1?1:0));
+ show($('h1'),Math.min(prog(t,T.p1+.1,.35),out(t,T.p2-.25,.2)));
+ show($('h2'),Math.min(prog(t,T.p2+.1,.35),out(t,T.p3-.25,.2)));
+ show($('h3'),Math.min(prog(t,T.p3+.1,.35),out(t,T.pe-.1,.2)));
+ showChip($('chip1'),Math.min(prog(t,T.p1+.9,.3),out(t,T.p2-.25,.2)));
+ showChip($('chip2'),Math.min(prog(t,T.p2+.9,.3),out(t,T.p3-.25,.2)));
+ showChip($('chip3'),Math.min(prog(t,T.p3+1.3,.3),out(t,T.pe-.1,.2)));
+ // wipe
+ let w; if(t<T.w0) w=-1; else if(t<T.w1) w=-1+ease((t-T.w0)/(T.w1-T.w0)); else if(t<T.w2) w=0; else w=ease((t-T.w2)/(T.w3-T.w2));
+ $('wipe').style.transform=`translateX(${w*100}%)`; $('wipe').style.display=(t<T.w0||t>T.w3)?'none':'flex';
+ // plans
+ const pp=prog(t,T.pl,.45); $('plans').style.display=t<T.pl?'none':'flex'; $('plans').style.opacity=pp;
+ [...$('plans').querySelectorAll('.k,.p,.s,.row,.set,.tax')].forEach((c,i)=>show(c,prog(t,T.pl+.15+i*.32,.45),30));
+ const e=prog(t,T.end,.5); $('end').style.opacity=e; $('end').style.display=t<T.end?'none':'flex';
+ [...$('end').children].forEach((c,i)=>show(c,prog(t,T.end+.2+i*.22,.45),28));
+};
+render(0);
+</script>
+</body></html>
