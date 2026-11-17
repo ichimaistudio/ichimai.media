@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden;font-family:"Noto Sans CJK JP";color:#1F1D1A;background:#F3EFE8}
+.serif{font-family:"Noto Serif CJK JP"}
+em{font-style:normal;color:#2F5A45}
+.pg{position:absolute;left:0;top:0;width:1080px;height:1350px;display:none;padding:92px 96px 84px;background:#F3EFE8;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:26px;letter-spacing:.3em;color:#8A8276}
+.top b{display:inline-block;width:48px;height:2px;background:#C9A98A;vertical-align:middle;margin-right:20px}
+.top .no{letter-spacing:.12em;font-family:"Noto Serif CJK JP"}
+.dark{background:#2F5A45;color:#F3EFE8}
+.dark .top{color:#C9D6CC}
+.dark em{color:#E3CBB1}
+.foot{position:absolute;left:96px;right:96px;bottom:70px;display:flex;justify-content:space-between;align-items:flex-end;font-size:24px;color:#8A8276}
+.foot .logo{font-size:34px;font-weight:700;color:#1F1D1A;letter-spacing:.05em;font-family:"Noto Serif CJK JP"}
+.dark .foot{color:#C9D6CC}.dark .foot .logo{color:#F3EFE8}
+.cap{position:absolute;left:96px;bottom:70px;font-size:22px;color:#8A8276}
+.logo2{position:absolute;right:96px;bottom:62px;font-size:30px;font-weight:700;letter-spacing:.05em;font-family:"Noto Serif CJK JP"}
+
+/* cover */
+#s1{padding-top:92px}
+#s1 h1{margin-top:44px;font-size:84px;line-height:1.36;font-weight:700;letter-spacing:.01em}
+#s1 .sub{margin-top:22px;font-size:32px;color:#4a453e}
+#s1 .card{position:absolute;left:170px;top:560px;width:800px;height:988px;border-radius:32px;
+  background:url(../lp/report_sample.jpg) -40.8px -40.8px/881.6px 1102px no-repeat;transform:rotate(-3deg);
+  box-shadow:0 30px 70px rgba(60,40,20,.20),0 4px 14px rgba(60,40,20,.10)}
+#s1 .tag{position:absolute;right:92px;top:392px;z-index:2;width:170px;height:170px;border-radius:50%;background:#2F5A45;color:#F3EFE8;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 10px 24px rgba(30,40,30,.25)}
+#s1 .tag b{font-family:"Noto Serif CJK JP";font-size:44px;letter-spacing:.1em}
+#s1 .tag small{font-size:20px;margin-top:4px;color:#E3CBB1}
+#s1 .fake{position:absolute;right:0;top:516px;padding:10px 26px;background:#1F1D1A;color:#F3EFE8;font-size:24px;border-radius:30px 0 0 30px;z-index:2}
+
+/* point slides */
+.pt .head{margin-top:64px;display:flex;align-items:flex-end;gap:26px}
+.pt .num{font-family:"Noto Serif CJK JP";font-size:132px;line-height:.86;font-weight:700;color:#C9A98A}
+.pt .lab{padding-bottom:10px}
+.pt .lab small{display:block;font-size:24px;letter-spacing:.3em;color:#8A8276}
+.pt .lab span{display:block;margin-top:6px;font-size:38px;font-weight:700;letter-spacing:.06em}
+.pt h2{margin-top:44px;font-size:74px;line-height:1.36;font-weight:700}
+.crop{margin-top:64px;width:888px;border-radius:26px;background-color:#FFFDF9;background-image:url(../lp/report_sample.jpg);background-size:1080px 1350px;background-repeat:no-repeat;
+  box-shadow:0 18px 44px rgba(60,40,20,.10);position:relative}
+.crop:after{content:"見本";position:absolute;right:18px;top:-18px;font-size:22px;letter-spacing:.2em;background:#1F1D1A;color:#F3EFE8;padding:6px 18px;border-radius:20px}
+.pt .body{margin-top:56px;font-size:36px;line-height:1.8;color:#4a453e}
+.pt .body strong{color:#1F1D1A}
+.note{margin-top:34px;font-size:28px;line-height:1.6;color:#4a453e;padding-left:26px;border-left:6px solid #C9A98A}
+
+/* plans */
+#s5 h2{margin-top:80px;font-size:66px;line-height:1.36;font-weight:700}
+.plans{margin-top:60px;display:flex;flex-direction:column;gap:26px}
+.pl{background:#FFFDF9;border-radius:24px;padding:34px 36px;display:flex;gap:30px;align-items:flex-start}
+.pl .nm{flex:none;width:250px}
+.pl .nm span{display:block;font-size:34px;font-weight:700}
+.pl .nm b{display:block;margin-top:6px;font-family:"Noto Serif CJK JP";font-size:40px;color:#2F5A45;white-space:nowrap}
+.pl .nm b small{font-size:24px;color:#1F1D1A;font-weight:400;margin-left:2px}
+.pl .ct{flex:1;font-size:27px;line-height:1.62;color:#4a453e;padding-top:4px}
+.pl .ct i{font-style:normal;display:inline-block;font-size:21px;letter-spacing:.08em;background:#2F5A45;color:#F3EFE8;border-radius:8px;padding:2px 12px;margin-right:10px;vertical-align:3px}
+.pl.hl{outline:4px solid #C9A98A}
+
+/* honest */
+#s6 h2{margin-top:96px;font-size:80px;line-height:1.36;font-weight:700}
+#s6 .lines{margin-top:76px;display:flex;flex-direction:column;gap:48px}
+#s6 .ln{display:flex;gap:28px;align-items:flex-start}
+#s6 .ln i{flex:none;margin-top:8px;width:46px;height:46px;border-radius:50%;background:#2F5A45;position:relative}
+#s6 .ln i:after{content:"";position:absolute;left:15px;top:9px;width:11px;height:20px;border:solid #F3EFE8;border-width:0 5px 5px 0;transform:rotate(40deg)}
+#s6 .ln.x i{background:#C9A98A}
+#s6 .ln.x i:before,#s6 .ln.x i:after{content:"";position:absolute;left:21px;top:10px;width:5px;height:26px;background:#F3EFE8;border:none;transform:rotate(45deg)}
+#s6 .ln.x i:before{transform:rotate(-45deg)}
+#s6 .ln div{font-size:36px;line-height:1.55;font-weight:700}
+#s6 .ln div small{display:block;margin-top:6px;font-size:27px;line-height:1.6;font-weight:400;color:#4a453e}
+
+/* cta */
+#s7 h2{margin-top:150px;font-size:86px;line-height:1.4;font-weight:700}
+#s7 .s{margin-top:44px;font-size:35px;line-height:1.75;color:#DCE5DE}
+#s7 .pills{margin-top:64px;display:flex;flex-direction:column;gap:24px}
+#s7 .pill{font-size:36px;font-weight:700;padding:30px 40px;border-radius:22px;background:#F3EFE8;color:#1F1D1A}
+#s7 .pill.o{background:transparent;border:3px solid #E3CBB1;color:#F3EFE8}
+#s7 .zero{margin-top:36px;font-size:26px;line-height:1.6;color:#C9D6CC}
+</style></head><body>
+
+<!-- 1 cover -->
+<div class="pg" id="s1">
+ <div class="top"><span><b></b>ホームページの保守</span><span class="no">01 / 07</span></div>
+ <h1 class="serif">毎月1日、<br>こんな<em>レポート</em>が<br>届きます。</h1>
+ <div class="card"></div>
+ <div class="tag"><b>見本</b><small>※架空のお店</small></div>
+</div>
+
+<!-- 2 numbers -->
+<div class="pg pt" id="s2">
+ <div class="top"><span><b></b>レポートの中身</span><span class="no">02 / 07</span></div>
+ <div class="head"><div class="num">01</div><div class="lab"><small>POINT</small><span>見られた数・押された数</span></div></div>
+ <h2 class="serif">見られただけ？<br><em>押された</em>のか？</h2>
+ <div class="crop" style="height:248px;background-position:-96px -296px"></div>
+ <div class="body">ページの閲覧数に加えて、<strong>電話ボタン・予約ボタンが押された回数</strong>も。公開するときに、数えられるよう設定しておきます。</div>
+ <div class="cap">※見本です。お店の名前・数字はすべて架空のものです</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 3 pages -->
+<div class="pg pt" id="s3">
+ <div class="top"><span><b></b>レポートの中身</span><span class="no">03 / 07</span></div>
+ <div class="head"><div class="num">02</div><div class="lab"><small>POINT</small><span>よく見られたページ</span></div></div>
+ <h2 class="serif">お客さんは、<br><em>どこ</em>を見ている？</h2>
+ <div class="crop" style="height:250px;background-position:-96px -548px"></div>
+ <div class="body">メニュー？アクセス？　よく見られているページが分かると、<strong>次に直す場所</strong>の見当がつきます。</div>
+ <div class="cap">※見本です。お店の名前・数字はすべて架空のものです</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 4 updates -->
+<div class="pg pt" id="s4">
+ <div class="top"><span><b></b>レポートの中身</span><span class="no">04 / 07</span></div>
+ <div class="head"><div class="num">03</div><div class="lab"><small>POINT</small><span>その月にした更新</span></div></div>
+ <h2 class="serif">頼んだこと、<br><em>ちゃんと</em>直ってる？</h2>
+ <div class="crop" style="height:206px;background-position:-96px -988px"></div>
+ <div class="body">お知らせ、Googleマップの営業時間、よくある質問。その月におこなった更新を、<strong>一覧</strong>でお伝えします。</div>
+ <div class="note">Googleマップ掲載の更新と「よくある質問」の整備は、スタンダード以上のプランです。</div>
+ <div class="cap">※見本です。お店の名前・数字はすべて架空のものです</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 5 plans -->
+<div class="pg" id="s5">
+ <div class="top"><span><b></b>保守プラン</span><span class="no">05 / 07</span></div>
+ <h2 class="serif">レポートは、<br><em>全プラン</em>についてきます。</h2>
+ <div class="plans">
+  <div class="pl"><div class="nm"><span>ライト</span><b>月¥3,980</b></div><div class="ct"><i>全プラン</i>毎月の成果レポート<br>サーバー・ドメイン・SSLの費用込み、月1回の軽い更新</div></div>
+  <div class="pl hl"><div class="nm"><span>スタンダード</span><b>月¥7,980</b></div><div class="ct">ライトの内容＋月3回まで更新、Googleマップ掲載の更新、AI検索にも伝わる「よくある質問」の整備</div></div>
+  <div class="pl"><div class="nm"><span>プラス</span><b>月¥14,800</b></div><div class="ct">スタンダードの内容＋レポートをもとにした毎月の改善提案、リール月2本込み</div></div>
+ </div>
+ <div class="cap">※料金はすべて税込</div><div class="logo2">ICHIMAI.</div>
+</div>
+
+<!-- 6 honesty -->
+<div class="pg" id="s6">
+ <div class="top"><span><b></b>大切にしていること</span><span class="no">06 / 07</span></div>
+ <h2 class="serif">数字は、<br><em>そのまま</em>書きます。</h2>
+ <div class="lines">
+  <div class="ln"><i></i><div>計測した、実際の数字だけ<small>少なかった月も、そのままお伝えします。</small></div></div>
+  <div class="ln"><i></i><div>お店の情報を、正しく最新に<small>お客さんにも、ChatGPTやGoogleのAI回答にも伝わりやすいように整えます。</small></div></div>
+  <div class="ln x"><i></i><div>「上位に出ます」とは言いません<small>Googleマップや AI検索での表示・順位は、Googleや各サービスが決めることです。</small></div></div>
+ </div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<!-- 7 cta -->
+<div class="pg dark" id="s7">
+ <div class="top"><span><b></b>CONTACT</span><span class="no">07 / 07</span></div>
+ <h2 class="serif">作ったあとも、<br><em>一緒に</em>見ていく。</h2>
+ <div class="s">今のサイトを見てほしい、だけでも。<br>お気軽にどうぞ。</div>
+ <div class="pills"><div class="pill">ご相談は DM から</div><div class="pill o">料金・プランはプロフィールのリンクへ</div></div>
+ <div class="zero">初期費用0円プランもあります（梅の制作＋スタンダード保守／月¥9,800・税込・最低24か月）</div>
+ <div class="foot"><span>立川・多摩のWeb制作</span><span class="logo">ICHIMAI.</span></div>
+</div>
+
+<script>
+window.render=n=>{n=Math.max(1,Math.round(n));document.querySelectorAll('.pg').forEach((e,i)=>e.style.display=(i+1===n)?'block':'none')};
+render(1);
+</script></body></html>
